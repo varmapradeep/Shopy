@@ -1,7 +1,8 @@
 <%@page import="java.sql.*" %>
 <%@page import="shoppackages.ShopClass" %>
-
+<div >
 <jsp:include page ="Guestheader.jsp"/>
+</div>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="login/fonts/icomoon/style.css">
@@ -10,23 +11,25 @@
 <link rel="stylesheet" href="login/css/bootstrap.min.css">
 <!-- Style -->
 <link rel="stylesheet" href="login/css/style.css">
-<title>SHOPY-Company Registration</title>
+<title>SHOPY-Login Page</title>
 <link rel="shortcut icon" type="image/png" href="login/images/logo_icon1.png">
 
 
 
-<div class="d-lg-flex half"  >
-    <div class="bg order-1 order-md-2" style="background-image: url('login/images/BG_2.jpg') ;height: 130%"></div>
 
-    <div class="contents order-2 order-md-1">
 
-        <div class="container" style="margin-top:2%;margin-bottom: 2%;" >
+
+<div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('login/images/BG_2.jpg');height: 140%"></div>
+    <div class="contents order-2 order-md-1" style="background-color: #ebdada;height: 140%">
+
+        <div class="container" style="padding-top: 18%;">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
-                    <h3>Sign up to<strong><b>SHOPY</b></strong></h3>
-                    <h5>Shop Managament System</h5>
-
-                    <p class="mb-6">COMPANY REGISTRATION</p>
+                    
+                    <h3>COMPANY REGISTRATION</h3>
+                    
+                    <!--<p class="mb-6"></p>-->
                     <form action="companyregaction.jsp" method="post" enctype="multipart/form-data">
                         <div class="form-group first">
                             <label>Company Name</label>
@@ -107,22 +110,26 @@
                         <div class="form-group last mb-3">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" placeholder="Your Password" name="password">
-                        </div>
+                        </div><br>
                         <input type="submit" value="Sign up" class="btn btn-block btn-primary">
 
                     </form>
                 </div>
             </div>
         </div>
-    </div 
+    </div>
 </div>
+                                        
+    
 
 <script src="login/js/jquery-3.3.1.min.js"></script>
 <script src="login/js/popper.min.js"></script>
 <script src="login/js/bootstrap.min.js"></script>
 <script src="login/js/main.js"></script>
 
-<jsp:include page ="Guestfooter.jsp"/>
+<div style="padding-top: 350px">
+    <jsp:include page ="Guestfooter.jsp"/>
+</div>
 
 
 

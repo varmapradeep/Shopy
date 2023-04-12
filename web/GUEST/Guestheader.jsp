@@ -55,27 +55,29 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li class="current-list-item"><a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Static Home</a></li>
-                                            <li><a href="index_2.html">Slider Home</a></li>
-                                        </ul>
+                                       
                                     </li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li class="current-list-item"><a href="about.html">About</a></li>
 
-                                    <li><a href="news.html">News</a>
+                                    <li class="current-list-item"><a href="news.html">News</a>
                                         <ul class="sub-menu">
                                             <li><a href="news.html">News</a></li>
                                             <li><a href="single-news.html">Single News</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a>Login</a>
+                                    <li class="current-list-item"><a href="contact.html">Contact</a></li>
+                                    
+                                    <li class="current-list-item"><a>Log in</a>
                                         <ul class="sub-menu">
                                             <li><a href="../LOGIN/index.html">Log in</a></li>
-                                            <li><a href="../LOGIN/Companyreg.jsp">Sign up</a></li>
-
+                                            <li><a href="./LOGIN/Companyreg.jsp">Sign up</a></li>
                                         </ul>
                                     </li>
+                                    
+                                    
+                                    
+                                    
+                                   
 
                                     <li>
                                         <div class="header-icons">

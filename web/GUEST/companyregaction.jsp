@@ -21,7 +21,7 @@
     ArrayList<String> details = new ArrayList();
     int maxFileSize = 50000 * 1024;
     int maxMemSize = 50000 * 1024;
-    String localpath = "D:/SHOP MANAGMENT SYSTEM/SHOPY/web/LOGIN/images/companylogo/";
+    String localpath = "D:/SHOP MANAGMENT SYSTEM/SHOPY/web/GUEST/img/companylogo/";
     String filePath = localpath;
     File folder = new File(filePath);
     folder.mkdir();
@@ -87,12 +87,12 @@
             try {
                 String companyname = details.get(0);
                 String companylogo = fileset.get(0);
-                String regno = details.get(2);
-                String phoneno = details.get(3);
-                String District = details.get(4);
-                String City = details.get(5);
-                String email = details.get(6);
-                String password = details.get(7);
+                String regno = details.get(1);
+                String phoneno = details.get(2);
+                String District = details.get(3);
+                String City = details.get(4);
+                String email = details.get(5);
+                String password = details.get(6);
 
                 Connection con = ShopClass.getCon();
                 Statement st = con.createStatement();
@@ -125,7 +125,7 @@
 %>
 <script>
     alert("Company Registeration Successfully");
-    window.location = "index.html";
+    window.location = "Guestindex.jsp";
 </script>
 <%
             out.println("</body>");
