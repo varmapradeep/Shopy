@@ -1,4 +1,4 @@
-<jsp:include page ="/Companies/Companyindex.jsp"/>
+<jsp:include page ="Companyindex.jsp"/>
 <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">

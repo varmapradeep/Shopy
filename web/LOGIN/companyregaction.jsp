@@ -89,14 +89,12 @@
                 String companylogo = fileset.get(0);
                 String regno = details.get(2);
                 String phoneno = details.get(3);
-                String districtid = details.get(4);
-                String cityid = details.get(5);
+                String District = details.get(4);
+                String City = details.get(5);
                 String email = details.get(6);
                 String password = details.get(7);
 
-                Class.forName("com.mysql.jdbc.Driver");
-                String data = "jdbc:mysql://localhost:3306/dbshop";
-                Connection con = DriverManager.getConnection(data, "root", "");
+                Connection con = ShopClass.getCon();
                 Statement st = con.createStatement();
                 String login1 = "insert into tbl_login(username,password,role,status)values('" + email + "','" + password + "','Company',' notconfirmed')";
                 st.executeUpdate(login1);
@@ -108,7 +106,7 @@
                     String loginid = rs1.getString("lid");
                     Date dNow = new Date();
                     SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd");
-                    String s = "insert into tbl_company(cpyname,cpylogo,regno,phone,district,city,loginid,regdate) values('" + companyname + "','" + companylogo + "','" + regno + "','" + phoneno + "','" + districtid + "','" + cityid + "','" + loginid + "','" + ft.format(dNow) + "')";
+                    String s = "insert into tbl_company(cpyname,cpylogo,regno,phone,district,city,loginid,regdate) values('" + companyname + "','" + companylogo + "','" + regno + "','" + phoneno + "','" + District + "','" + City + "','" + loginid + "','" + ft.format(dNow) + "')";
                     st.executeUpdate(s);
                 } else {
 %>
