@@ -27,15 +27,15 @@
 // if(role=="admin"){
             if (role.equals("Admin"))
             {
-                response.sendRedirect("../Admin/AdminHome.jsp");
+                response.sendRedirect("../ADMIN/AdminHome.jsp");
             } else if (role.equals("Shop")) 
             {
-                response.sendRedirect("../Shop/Shophome.jsp");
+                response.sendRedirect("../SHOP/Shophome.jsp");
             } else if (role.equals("Company")) 
             {
                 if (status.equals("Confirmed"))
                 {
-                    response.sendRedirect("../Companies/Companyhome.jsp");
+                    response.sendRedirect("../COMPANY/Companyhome.jsp");
                 }
                 else 
                 {
