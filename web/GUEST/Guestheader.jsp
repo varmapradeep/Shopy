@@ -29,13 +29,13 @@
     </head>
     <body>
 
-<!--        PreLoader
-        <div class="loader">
-            <div class="loader-inner">
-                <div class="circle"></div>
-            </div>
-        </div>
-        PreLoader Ends-->
+        <!--        PreLoader
+                <div class="loader">
+                    <div class="loader-inner">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                PreLoader Ends-->
 
         <!-- header -->
         <div class="top-header-area" id="sticker">
@@ -54,8 +54,8 @@
                             <!-- menu start -->
                             <nav class="main-menu">
                                 <ul>
-                                    <li class="current-list-item"><a href="#">Home</a>
-                                       
+                                    <li class="current-list-item"><a href="Guestindex.jsp">Home</a>
+
                                     </li>
                                     <li class="current-list-item"><a href="about.html">About</a></li>
 
@@ -66,18 +66,20 @@
                                         </ul>
                                     </li>
                                     <li class="current-list-item"><a href="contact.html">Contact</a></li>
-                                    
+
                                     <li class="current-list-item"><a>Log in</a>
                                         <ul class="sub-menu">
-                                            <li><a href="../LOGIN/index.html">Log in</a></li>
-                                            <li><a href="./LOGIN/Companyreg.jsp">Sign up</a></li>
+                                            <li><a href="../GUEST/login.jsp">Log in</a></li>
+                                            <li><a href="../GUEST/Companyreg.jsp">Company Registrstion</a></li>
+                                            <li><a href="../GUEST/shopreg.jsp">Shop Registrstion</a></li>
+
                                         </ul>
                                     </li>
-                                    
-                                    
-                                    
-                                    
-                                   
+
+
+
+
+
 
                                     <li>
                                         <div class="header-icons">

@@ -20,7 +20,7 @@
     ArrayList<String> details = new ArrayList();
     int maxFileSize = 50000 * 1024;
     int maxMemSize = 50000 * 1024;
-    String localpath = "D:/SHOP MANAGMENT SYSTEM/Shop Managment System/web/Admin/images/hhh/";
+    String localpath = "D:/SHOP MANAGMENT SYSTEM/SHOPY/web/ADMIN/images/subcategoryimg/";
     String filePath = localpath;
     File folder = new File(filePath);
     folder.mkdir();
@@ -88,6 +88,7 @@
                 String id = details.get(2);
 
                 String Subcategoryimg1 = fileset.get(0);
+                out.println(Subcategoryimg1);
                 int num = Integer.parseInt(id);
 
                 Class.forName("com.mysql.jdbc.Driver");
@@ -108,10 +109,10 @@
                 out.println(e);
             }
 %>
-<script>
+<!--<script>
     alert("Sub-Category Updated Successfully");
     window.location = "../Subcategoryview.jsp";
-</script>
+</script>-->
 <%
             out.println("</body>");
             out.println("</html>");

@@ -15,7 +15,7 @@
                     <div class="login_form">
                         <%
                             try {
-                                String id = request.getParameter("subid");
+                                String id = request.getParameter("id");
                                 int num = Integer.parseInt(id);
                                 Connection con = ShopClass.getCon();
                                 Statement st = con.createStatement();
@@ -23,7 +23,7 @@
                                 ResultSet rs = st.executeQuery(Query);
                                 while (rs.next()) {
                         %>
-                        <form action="../Admin/Subcategoryeditaction.jsp" method="post" enctype="multipart/form-data">
+                        <form action="../ADMIN/Subcategoryeditaction.jsp" method="post" enctype="multipart/form-data">
 
                             <fieldset>
                                 <div class="field">
@@ -79,7 +79,7 @@
                                             <span>Change Image</span>
                                         </label>
                                         <input id="file" type="file" onchange="loadFile(event)"/>
-                                        <img src='../Admin/images/subcategoryimg/<%=rs.getString("subcategoryimg")%>' id="Subcategoryimg1" name="Subcategoryimg1"/>
+                                        <img src='../ADMIN/images/subcategoryimg/<%=rs.getString("subcategoryimg")%>' id="Subcategoryimg1" name="Subcategoryimg1"/>
                                     </div>
                                     <script>
                                         var loadFile = function(event) {
