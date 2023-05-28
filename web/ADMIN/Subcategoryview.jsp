@@ -11,7 +11,7 @@
             <h2><b> Sub-CATEGORIES</b></h2>
         </div>
         <div class="dash_head">
-            <h3><span><i class="fa fa-comments-o"></i> Sub-Category View</span><span class="plus_green_bt"><a href="Subcategory.jsp">+</</span></h3>
+            <h3><span><i class="fa fa-comments-o"></i> Sub-Category View</span><span class="plus_green_bt"><a href="Subcategory.jsp">+</a></span></h3>
         </div>
     </div>
 
@@ -24,6 +24,7 @@
                         <th>Sub-Category Image</th>
                         <th>Sub-Category Name</th>
                         <th>Sub-Category Description</th>
+                        <th>Category Selected</th>
                         <th>Edit</th>
                         <th>Delete</th>
 
@@ -34,15 +35,17 @@
                         try {
                             Connection con = ShopClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "select * from tbl_subcategory";
+                            String Query = "SELECT * FROM tbl_subcategory ts INNER JOIN tbl_category tc ON ts.categoryid=tc.categoryid";
                             ResultSet rs = st.executeQuery(Query);
                             while (rs.next()) {
                     %>
                     <tr>
                         <td><%=++slno%></td>
-                        <td><img src='../ADMIN/images/subcategoryimg/<%=rs.getString("subcategoryimg")%>'width="80" height="80"></td>
+                        <td><img src='../ADMIN/images/subcategoryimg/<%=rs.getString("subcategoryimg")%>' width="110" height="80"></td>
                         <td><%=rs.getString("subcategoryname")%></td>
                         <td><%=rs.getString("subcategorydesc")%></td>
+                        <td><%=rs.getString("categoryname")%></td>
+
                         <td class="w3-xlarge"> <a onclick="return confirm('Do u want to Edit Sub-Category?')" href="Subcategoryedit.jsp?id=<%=rs.getString("categoryid")%>" class="fa fa-edit"></a></td>
                         <td class="w3-xlarge"> <a onclick="return confirm('Do u want to delete this Sub-Category?')" href="SubCategorydelete.jsp?subid=<%=rs.getString("subcategoryid")%>" class="fa fa-trash"></a></td>
 

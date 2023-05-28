@@ -19,9 +19,9 @@
                                 int num = Integer.parseInt(id);
                                 Connection con = ShopClass.getCon();
                                 Statement st = con.createStatement();
-                                String Query = ("select * from tbl_subcategory  where subcategoryid='" + num + "'");
+                                String Query = ("select * from tbl_subcategory ts INNER JOIN tbl_category tc ON ts.categoryid=tc.categoryid where subcategoryid='" + num + "'");
                                 ResultSet rs = st.executeQuery(Query);
-                                while (rs.next()) {
+                                if (rs.next()) {
                         %>
                         <form action="../ADMIN/Subcategoryeditaction.jsp" method="post" enctype="multipart/form-data">
 
@@ -90,15 +90,48 @@
 
                                 </div>
                                 <div class="field">
+                                    <div class="form-outline mb">
+                                        <label class="label_field">Category</label>
+                                        <select class="select form-control" name="Category" style="width: 65%; display: inline-grid;">
+                                            <option disabled selected value=""><%=rs.getString("categoryname")%></option>
+                                            <%
+                                                try {
+                                                    
+                                                    String Query1 = "select * from tbl_category";
+                                                    ResultSet rs2 = st.executeQuery(Query1);
+                                                    while (rs2.next()) {
+                                            %>
+                                            <option value="<%=rs2.getString("categoryid")%>"><%=rs2.getString("categoryname")%></option>
+                                            <%
+                                                    }
+                                                } catch (Exception e) {
+
+                                                }
+                                            %>      
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                                            <%
+                            try {
+                                
+                                String Query2 = ("select * from tbl_subcategory  where subcategoryid='" + num + "'");
+                                ResultSet rs1 = st.executeQuery(Query2);
+                                
+                                if (rs1.next()) {
+                        %>
+                                <div class="field">
                                     <label class="label_field">Sub Category</label>
-                                    <input type="text" name="Subcategory" value="<%=rs.getString("subcategoryname")%>" placeholder="SubCategory Name" />
+                                    <input type="text" name="Subcategory" value="<%=rs1.getString("subcategoryname")%>" placeholder="SubCategory Name" />
                                 </div>
                                 <div class="field">
                                     <label class="label_field">Description</label>
-                                    <input type="text" name="subcategorydesc" value="<%=rs.getString("subcategorydesc")%>" placeholder="SubCategory Description " />
+                                    <input type="text" name="subcategorydesc" value="<%=rs1.getString("subcategorydesc")%>" placeholder="SubCategory Description " />
                                 </div>
                                 <div class="field">
-                                    <input type="hidden" name="id" value="<%=rs.getString("subcategoryid")%>">
+                                    <input type="hidden" name="id" value="<%=rs1.getString("subcategoryid")%>">
                                 </div>
                                 <div class="field margin_0">
                                     <label class="label_field hidden">hidden label</label>
@@ -107,6 +140,12 @@
                                 </div>
 
                             </fieldset>
+                                 <%
+                                }
+                            } catch (Exception e) {
+                                out.println("error");
+                            }
+                        %>  
                         </form>
                         <%
                                 }

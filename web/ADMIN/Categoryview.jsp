@@ -39,7 +39,7 @@
                     %>
                     <tr>
                         <td><%=++slno%></td>
-                        <td><img src='../ADMIN/images/categoryimg/<%=rs.getString("categoryimage")%>'width="80" height="80"></td>
+                        <td><img src='../ADMIN/images/categoryimg/<%=rs.getString("categoryimage")%>' width="100" height="80"></td>
                         <td><%=rs.getString("categoryname")%></td>
                         <td><%=rs.getString("Categorydec")%></td>
                         <td class="w3-xlarge"> <a onclick="return confirm('Do u want to Edit Category?')" href="../ADMIN/Categoryedit.jsp?eid=<%=rs.getString("categoryid")%>" class="fa fa-edit"></a></td>
