@@ -12,6 +12,15 @@
         </div>
         <div class="dash_head">
             <h3><span><i class="fa fa-comments-o"></i> Sub-Category View</span><span class="plus_green_bt"><a href="Subcategory.jsp">+</a></span></h3>
+              <div class="form-outline mb">
+            <label class="label_field">Select Category</label>
+            <select class="select form-control" name="Cate"  style="width: 20%; display: inline-grid;">
+                <option disabled selected value="">Select Category</option>
+                
+
+            </select>
+
+        </div>
         </div>
     </div>
 

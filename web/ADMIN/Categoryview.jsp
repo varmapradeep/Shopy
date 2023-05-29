@@ -10,10 +10,11 @@
         <div class="heading1 margin_0 ">
             <h2><b>CATEGORIES</b></h2>
         </div>
-                <div class="dash_head">
-            <h3><span><i class="fa fa-comments-o"></i> Category View</span><span class="plus_green_bt"><a href="Category.jsp">+</</span></h3>
+        <div class="dash_head">
+            <h3><span><i class="fa fa-comments-o"></i> Category View</span><span class="plus_green_bt"><a href="Category.jsp">+</span></h3>
         </div>
     </div>
+    
     <div class="table_section padding_infor_info">
         <div class="table-responsive-sm">
             <table class="table">
