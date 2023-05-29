@@ -6,12 +6,12 @@
         Connection con = ShopClass.getCon();
         Statement st = con.createStatement();
         String id = request.getParameter("id");
-
+        out.println( id );
         st.executeUpdate("update tbl_login set status='Confirmed' where loginid='" + id + "'");
 %>
 <script>
     alert("Company Approved Successfully");
-    window.location = "Viewcompany.jsp";
+    window.location = "companyrequests.jsp";
 </script>
 <%
     } catch (Exception e) {

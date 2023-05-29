@@ -96,7 +96,7 @@
                                             <option disabled selected value=""><%=rs.getString("categoryname")%></option>
                                             <%
                                                 try {
-                                                    
+
                                                     String Query1 = "select * from tbl_category";
                                                     ResultSet rs2 = st.executeQuery(Query1);
                                                     while (rs2.next()) {
@@ -114,14 +114,14 @@
                                     </div>
 
                                 </div>
-                                            <%
-                            try {
-                                
-                                String Query2 = ("select * from tbl_subcategory  where subcategoryid='" + num + "'");
-                                ResultSet rs1 = st.executeQuery(Query2);
-                                
-                                if (rs1.next()) {
-                        %>
+                                <%
+                                    try {
+
+                                        String Query2 = ("select * from tbl_subcategory  where subcategoryid='" + num + "'");
+                                        ResultSet rs1 = st.executeQuery(Query2);
+
+                                        if (rs1.next()) {
+                                %>
                                 <div class="field">
                                     <label class="label_field">Sub Category</label>
                                     <input type="text" name="Subcategory" value="<%=rs1.getString("subcategoryname")%>" placeholder="SubCategory Name" />
@@ -140,12 +140,12 @@
                                 </div>
 
                             </fieldset>
-                                 <%
+                            <%
+                                    }
+                                } catch (Exception e) {
+                                    out.println("error");
                                 }
-                            } catch (Exception e) {
-                                out.println("error");
-                            }
-                        %>  
+                            %>  
                         </form>
                         <%
                                 }
@@ -159,5 +159,4 @@
             </div>
         </div>
     </div>
-
 </body>

@@ -11,8 +11,8 @@
             <h2><b>SHOP</b></h2>
         </div>
         <div class="dash_head">
-            <h3><span><i class="fa fa-comments-o"></i> Shop View</span><span class="plus_green_bt"><a href="Shoprequests.jsp" style="border-radius: 15%;width: 135px;font-size: 12px;">Shop Request</</span></h3>
 
+            <h3><span><i class="fa fa-comments-o"></i> Shop View</span></h3>
         </div>
     </div>
     <div class="table_section padding_infor_info">
@@ -28,6 +28,8 @@
                         <th>City</th>
                         <th>E-mail</th>
                         <th>Reg Date</th>
+                        <th>Approve</th>
+                        <th>Reject</th>
 
                     </tr>
                 </thead>
@@ -36,7 +38,7 @@
                         try {
                             Connection con = ShopClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "SELECT * FROM tbl_shop tc INNER JOIN tbl_login tl ON tc.loginid=tl.loginid INNER JOIN tbl_district td ON tc.district=td.districtid INNER JOIN tbl_city t ON tc.city=t.cityid WHERE tl.status='Confirmed'";
+                            String Query = "SELECT * FROM tbl_shop tc INNER JOIN tbl_login tl ON tc.loginid=tl.loginid INNER JOIN tbl_district td ON tc.district=td.districtid INNER JOIN tbl_city t ON tc.city=t.cityid WHERE tl.status='Unconfirmed'";
                             ResultSet rs = st.executeQuery(Query);
                             while (rs.next()) {
                     %>
@@ -49,7 +51,8 @@
                         <td><%=rs.getString("cityname")%></td>
                         <td><%=rs.getString("username")%></td>
                         <td><%=rs.getString("regdate")%></td>
-
+                        <td class="w3-xlarge"> <a onclick="return confirm('This Shop Will be Approved.\n Do you want to Continue?')" href="Shopapprove.jsp?id=<%=rs.getString("loginid")%>" class="fa fa-check"></a></td>
+                        <td class="w3-xlarge"> <a onclick="return confirm('This Shop Will be Rejected.\n Do you want to Continue?')" href="Shopreject.jsp?id=<%=rs.getString("loginid")%>" class="fa fa-close"></a></td>
 
                     </tr>
                     <%

@@ -96,7 +96,7 @@
 
                 Connection con = ShopClass.getCon();
                 Statement st = con.createStatement();
-                String login1 = "insert into tbl_login(username,password,role,status)values('" + email + "','" + password + "','Company',' notconfirmed')";
+                String login1 = "insert into tbl_login(username,password,role,status)values('" + email + "','" + password + "','Company','Unconfirmed')";
                 st.executeUpdate(login1);
                 out.println(login1);
                 //get login id

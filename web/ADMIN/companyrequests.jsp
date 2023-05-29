@@ -8,26 +8,28 @@
 <div class="white_shd full margin_bottom_30">
     <div class="full graph_head">
         <div class="heading1 margin_0 ">
-            <h2><b>SHOP</b></h2>
+            <h2><b>COMPANIES</b></h2>
         </div>
         <div class="dash_head">
-            <h3><span><i class="fa fa-comments-o"></i> Shop View</span><span class="plus_green_bt"><a href="Shoprequests.jsp" style="border-radius: 15%;width: 135px;font-size: 12px;">Shop Request</</span></h3>
-
+            <h3><span><i class="fa fa-comments-o"></i> Company Requests</span></</span></h3>
         </div>
     </div>
     <div class="table_section padding_infor_info">
-        <div class="table-hover table-responsive-sm table-bordered">
+        <div class="table-responsive-sm table-hover table-bordered">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>Index No</th>
-                        <th>Shop Name</th>
-                        <th>Owner Name</th>
+                        <th>Company logo</th>
+                        <th>Company Name</th>
+                        <th>Company Reg No</th>
                         <th>Phone</th>
                         <th>District</th>
                         <th>City</th>
                         <th>E-mail</th>
                         <th>Reg Date</th>
+                        <th>Approve</th>
+                        <th>Reject</th>
 
                     </tr>
                 </thead>
@@ -36,21 +38,23 @@
                         try {
                             Connection con = ShopClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "SELECT * FROM tbl_shop tc INNER JOIN tbl_login tl ON tc.loginid=tl.loginid INNER JOIN tbl_district td ON tc.district=td.districtid INNER JOIN tbl_city t ON tc.city=t.cityid WHERE tl.status='Confirmed'";
+                            String Query = "SELECT * FROM tbl_company tc INNER JOIN tbl_login tl ON tc.loginid=tl.loginid INNER JOIN tbl_district td ON tc.district=td.districtid INNER JOIN tbl_city t ON tc.city=t.cityid WHERE tl.status='Unconfirmed'";
                             ResultSet rs = st.executeQuery(Query);
                             while (rs.next()) {
                     %>
                     <tr>
                         <td><%=++slno%></td>
-                        <td><%=rs.getString("shopname")%></td>
-                        <td><%=rs.getString("ownername")%></td>
-                        <td><%=rs.getString("phoneno")%></td>
+                        <td><img src='../GUEST/img/companylogo/<%=rs.getString("cpylogo")%>' width="80" height="80"></td>
+                        <td><%=rs.getString("cpyname")%></td>
+                        <td><%=rs.getString("regno")%></td>
+                        <td><%=rs.getString("phone")%></td>
                         <td><%=rs.getString("districtname")%></td>
                         <td><%=rs.getString("cityname")%></td>
                         <td><%=rs.getString("username")%></td>
                         <td><%=rs.getString("regdate")%></td>
-
-
+                       
+                        <td class="w3-xlarge"> <a onclick="return confirm('This Company Will be Approved.\n Do you want to Continue?')" href="Companyapprove.jsp?id=<%=rs.getString("loginid")%>" class="fa fa-check"></a></td>
+                        <td class="w3-xlarge"> <a onclick="return confirm('This Company Will be Rejected.\n Do you want to Continue?')" href="Companyreject.jsp?id=<%=rs.getString("loginid")%>" class="fa fa-close"></a></td>
                     </tr>
                     <%
                             }

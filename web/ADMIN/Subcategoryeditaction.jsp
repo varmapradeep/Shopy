@@ -1,5 +1,3 @@
-
-
 <%@page import="shoppackages.ShopClass" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>

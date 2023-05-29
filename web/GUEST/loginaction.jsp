@@ -15,7 +15,7 @@
 // out.println("...INSERTED..");
         if (rs.next()) {
             // out.println("he");
-            int loginid = rs.getInt("loginid"); 
+            int loginid = rs.getInt("loginid");
             session.setAttribute("loginid", loginid);
 // String r="admin";
             // out.println(loginid);
@@ -25,32 +25,54 @@
 // st.executeUpdate("Update tbl_login set status='confirmed' where username ='"+Username+"'  ");
             //out.println("hi");
 // if(role=="admin"){
-            if (role.equals("Admin"))
-            {
+            if (role.equals("Admin")) {
                 response.sendRedirect("../ADMIN/AdminHome.jsp");
-            } else if (role.equals("Shop")) 
-            {
-                response.sendRedirect("../SHOP/Shophome.jsp");
-            } else if (role.equals("Company")) 
-            {
-                if (status.equals("Confirmed"))
-                {
-                    response.sendRedirect("../COMPANY/Companyhome.jsp");
-                }
-                else 
-                {
-                    out.println("pls wait");
+            } else if (role.equals("Shop")) {
+                if (status.equals("Confirmed")) {
+                    response.sendRedirect("../SHOP/Shophome.jsp");
+                } else if (status.equals("Rejected"))
+                        {
+                            %>
+<script>
+    alert("YOUR REQUEST HAS BEEN REJECTED");
+     window.location = "login.jsp";
+</script>
+<%
+   }
+ else {
+%>
+<script>
+    alert("WAITING FOR ADMINS APPROVAL");
+     window.location = "login.jsp";
+</script>
+<%
+    }
+} else if (role.equals("Company")) {
+    if (status.equals("Confirmed")) {
+        response.sendRedirect("../COMPANY/Companyhome.jsp");
+    } else if (status.equals("Rejected")) 
+    {
+         %>
+<script>
+    alert("YOUR REQUEST HAS BEEN REJECTED");
+     window.location = "login.jsp";
+</script>
+<%
+         }
+ else {
+%>
+<script>
+    alert("WAITING FOR ADMINS APPROVAL");
+     window.location = "login.jsp";
+</script>
+<%
                 }
             }
-        }
-         else {
+        } else {
             out.println("invalid username or password");
 
         }
-    } 
-    
-        catch (Exception e) 
-                {
+    } catch (Exception e) {
     }
 
 %>

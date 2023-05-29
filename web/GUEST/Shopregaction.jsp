@@ -15,7 +15,7 @@
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        String sql1 = "insert into tbl_login(username,password,role,status)values('" + email + "','" + password + "','Shop',' notconfirmed')";
+        String sql1 = "insert into tbl_login(username,password,role,status)values('" + email + "','" + password + "','Shop','Unconfirmed')";
         out.println(sql1);
         st.executeUpdate(sql1);
         out.println(sql1);
