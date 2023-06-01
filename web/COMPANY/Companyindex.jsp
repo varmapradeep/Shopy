@@ -25,7 +25,7 @@
             <!-- partial:partials/_navbar.html -->
             <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="background-color: #248AFD">
-                    <a class="navbar-brand brand-logo mr-5" href="Companyhome.jsp"><img src="images/logo1.png" class="mr-2" alt="logowhite"/></a>
+                    <a class="navbar-brand brand-logo mr-5" href="Companyhome.jsp"><img  src="images/logo1.png" class="mr-2" alt="logowhite"/></a>
                     <a class="navbar-brand brand-logo-mini" href="Companyhome.jsp"><img src="images/logo_icon1.png" alt="logoshort"/></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"style="background-color:transparent">
@@ -102,9 +102,10 @@
                                     <i class="ti-settings text-primary"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item">
-                                    <i class="ti-power-off text-primary"></i>
-                                    Logout
+                                <a class="dropdown-item" href="../GUEST/Guestindex.jsp">
+                                    <i class="ti-power-off text-primary" ></i>
+                                    Log Out
+
                                 </a>
                             </div>
                         </li>
@@ -120,7 +121,7 @@
                 <!-- partial:partials/_settings-panel.html -->
 
                 <!-- partial -->
-               
+
                 <!-- partial:partials/_sidebar.html -->
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
@@ -133,13 +134,13 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                                 <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">UI Elements</span>
+                                <span class="menu-title">Products</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="Cmpaddproduct.jsp">Add Products</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="cpyviewproducts.jsp">View products</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                                 </ul>
                             </div>
@@ -226,34 +227,36 @@
                         </li>
                     </ul>
                 </nav> 
-              
-            
-            <!-- page-body-wrapper ends -->
-        
-        <!-- container-scroller -->
 
-        <!-- plugins:js -->
-        <script src="vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <script src="vendors/chart.js/Chart.min.js"></script>
-        <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-        <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-        <script src="js/dataTables.select.min.js"></script>
 
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="js/off-canvas.js"></script>
-        <script src="js/hoverable-collapse.js"></script>
-        <script src="js/template.js"></script>
-        <script src="js/settings.js"></script>
-        <script src="js/todolist.js"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page-->
-        <script src="js/dashboard.js"></script>
-        <script src="js/Chart.roundedBarCharts.js"></script>
-        <!-- End custom js for this page-->
-    </body>
 
-</html>
+                <!-- page-body-wrapper ends -->
+
+                <!-- container-scroller -->
+
+                <!-- plugins:js -->
+                <script src="vendors/js/vendor.bundle.base.js"></script>
+                <!-- endinject -->
+                <!-- Plugin js for this page -->
+                <script src="vendors/chart.js/Chart.min.js"></script>
+                <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+                <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+                <script src="js/dataTables.select.min.js"></script>
+
+                <!-- End plugin js for this page -->
+                <!-- inject:js -->
+                <script src="js/off-canvas.js"></script>
+                <script src="js/hoverable-collapse.js"></script>
+                <script src="js/template.js"></script>
+                <script src="js/settings.js"></script>
+                <script src="js/todolist.js"></script>
+                <!-- endinject -->
+                <!-- Custom js for this page-->
+                <script src="js/dashboard.js"></script>
+                <script src="js/Chart.roundedBarCharts.js"></script>
+                <!-- End custom js for this page-->
+                </body>
+
+
+                </html>
 

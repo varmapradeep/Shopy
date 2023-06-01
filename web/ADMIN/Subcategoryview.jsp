@@ -10,63 +10,60 @@
         <div class="heading1 margin_0 ">
             <h2><b> Sub-CATEGORIES</b></h2>
         </div>
-        <div class="dash_head">
+        <div class="dash_head" >
             <h3><span><i class="fa fa-comments-o"></i> Sub-Category View</span><span class="plus_green_bt"><a href="Subcategory.jsp">+</a></span></h3>
-              <div class="form-outline mb">
-            <label class="label_field">Select Category</label>
-            <select class="select form-control" name="Cate"  style="width: 20%; display: inline-grid;">
-                <option disabled selected value="">Select Category</option>
-                
+            <div class="form-outline mb">
+                <br>
+                <label class="label_field" style="color: white">Select Category</label>
+                <select class="select form-control" name="Cate" id="cate" onchange="displaysubcat()" style="width: 20%; display: inline-grid;">
+                    <option disabled selected value="">Select Category</option>
 
-            </select>
-
-        </div>
-        </div>
-    </div>
-
-    <div class="table_section padding_infor_info">
-        <div class="table-responsive-sm">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Index No</th>
-                        <th>Sub-Category Image</th>
-                        <th>Sub-Category Name</th>
-                        <th>Sub-Category Description</th>
-                        <th>Category Selected</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-
-                    </tr>
-                </thead>
-                <tbody>
                     <%
                         try {
                             Connection con = ShopClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "SELECT * FROM tbl_subcategory ts INNER JOIN tbl_category tc ON ts.categoryid=tc.categoryid";
+                            String Query = "select * from tbl_category";
                             ResultSet rs = st.executeQuery(Query);
                             while (rs.next()) {
                     %>
-                    <tr>
-                        <td><%=++slno%></td>
-                        <td><img src='../ADMIN/images/subcategoryimg/<%=rs.getString("subcategoryimg")%>' width="110" height="80"></td>
-                        <td><%=rs.getString("subcategoryname")%></td>
-                        <td><%=rs.getString("subcategorydesc")%></td>
-                        <td><%=rs.getString("categoryname")%></td>
-
-                        <td class="w3-xlarge"> <a onclick="return confirm('Do u want to Edit Sub-Category?')" href="Subcategoryedit.jsp?id=<%=rs.getString("categoryid")%>" class="fa fa-edit"></a></td>
-                        <td class="w3-xlarge"> <a onclick="return confirm('Do u want to delete this Sub-Category?')" href="SubCategorydelete.jsp?subid=<%=rs.getString("subcategoryid")%>" class="fa fa-trash"></a></td>
-
-                    </tr>
+                    <option value="<%=rs.getString("categoryid")%>"><%=rs.getString("categoryname")%></option>
                     <%
                             }
                         } catch (Exception e) {
-                            out.println("exception");
+
                         }
-                    %> 
-                </tbody>
-            </table>
+                    %>    
+                </select>
+
+            </div>
         </div>
     </div>
+
+
+    <div class="table_section padding_infor_info" id="cat">
+        <div class="table-responsive-sm">
+
+        </div>
+    </div>
+
 </div>
+                
+<script>
+    function displaysubcat()
+    {
+//        alert("a")
+        var val = document.getElementById('cate').value;
+//        alert(val)
+        $.ajax({
+            type: "POST",
+            url: "getsubcategory.jsp",
+            data: "id=" + val,
+            success: function(data2)
+            {
+// alert(data2);
+                $("#cat").html(data2);
+            }
+        })
+    }
+</script> 
+<script src="js/jquery-3.3.1.min.js"></script>

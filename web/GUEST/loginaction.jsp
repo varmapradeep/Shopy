@@ -15,8 +15,10 @@
 // out.println("...INSERTED..");
         if (rs.next()) {
             // out.println("he");
-            int loginid = rs.getInt("loginid");
-            session.setAttribute("loginid", loginid);
+//            int loginid = rs.getInt("loginid");
+//            session.setAttribute("loginid", loginid);
+            String loginid=rs.getString("loginid");
+            session.setAttribute("loginid",loginid);
 // String r="admin";
             // out.println(loginid);
             String role = rs.getString("role").replaceAll("\\s", ""); // replaceAll("\\s", "")
