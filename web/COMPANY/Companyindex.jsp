@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <%@page import="java.sql.*" %>
+    <%@page import="shoppackages.ShopClass"%>
 
     <head>
 
@@ -28,7 +30,7 @@
                     <a class="navbar-brand brand-logo mr-5" href="Companyhome.jsp"><img  src="images/logo1.png" class="mr-2" alt="logowhite"/></a>
                     <a class="navbar-brand brand-logo-mini" href="Companyhome.jsp"><img src="images/logo_icon1.png" alt="logoshort"/></a>
                 </div>
-                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"style="background-color:transparent">
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color:transparent">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="icon-menu"></span>
                     </button>
@@ -94,8 +96,18 @@
                             </div>
                         </li>
                         <li class="nav-item nav-profile dropdown">
+                            <%
+                                try {
+                                    String loginid = (String) session.getAttribute("loginid");
+                                    Connection con = ShopClass.getCon();
+                                    Statement st = con.createStatement();
+                                    String Query = "SELECT * FROM tbl_company WHERE loginid='" + loginid + "'";
+                                    ResultSet rs = st.executeQuery(Query);
+                                    while (rs.next()) {
+                            %>
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                                <img src="images/faces/face28.jpg" alt="profile"/>
+                                <img src='../GUEST/img/companylogo/<%=rs.getString("cpylogo")%>' alt="profile"/>
+                                <!--<img src='../GUEST/img/companylogo/<%=rs.getString("cpylogo")%>' width="80" height="80">-->
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item">
@@ -108,6 +120,12 @@
 
                                 </a>
                             </div>
+                            <%
+                                    }
+                                } catch (Exception e) {
+                                    out.println("exception");
+                                }
+                            %> 
                         </li>
 
                     </ul>
@@ -126,9 +144,9 @@
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="Companyhome.jsp">
                                 <i class="icon-grid menu-icon"></i>
-                                <span class="menu-title">Dashboard</span>
+                                <span class="menu-title">Home</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -148,12 +166,12 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                                 <i class="icon-columns menu-icon"></i>
-                                <span class="menu-title">Form elements</span>
+                                <span class="menu-title">Requests</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="form-elements">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="viewrequests.jsp">View Requests</a></li>
                                 </ul>
                             </div>
                         </li>

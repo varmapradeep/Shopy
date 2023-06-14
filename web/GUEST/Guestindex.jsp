@@ -7,10 +7,10 @@
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
                                 <p class="subtitle">Fresh & Organic</p>
-                                <h1>Delicious Seasonal Fruits</h1>
+                                <h1>BUY SOME BULK ITEMS TO THE STORE</h1>
                                 <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                                    <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                    <a href="login.jsp" class="boxed-btn">Login</a>
+                                    <a href="login.jsp" class="bordered-btn">Explore</a>
                                 </div>
                             </div>
                         </div>

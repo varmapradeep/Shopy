@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="login_form">
-                        <form action="Cityregaction.jsp"method="post">
+                        <form action="Cityregaction.jsp" method="post">
                             <fieldset>
                                 <div class="field">
                                     <div class="form-outline mb">

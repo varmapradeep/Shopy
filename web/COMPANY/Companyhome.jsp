@@ -1,13 +1,29 @@
 <jsp:include page ="Companyindex.jsp"/>
+<%@page import="java.sql.*" %>
+<%@page import="shoppackages.ShopClass"%>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12 grid-margin">
-                <div class="row">
+                <div class="row"><%
+                    try {
+                        String loginid = (String) session.getAttribute("loginid");
+                        Connection con = ShopClass.getCon();
+                        Statement st = con.createStatement();
+                        String Query = "SELECT * FROM tbl_company WHERE loginid='" + loginid + "'";
+                        ResultSet rs = st.executeQuery(Query);
+                        while (rs.next()) {
+                %>
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Welcome Aamir</h3>
+                        <h3 class="font-weight-bold">Welcome <b><%=rs.getString("cpyname")%></b></h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                     </div>
+                     <%
+                        }
+                    } catch (Exception e) {
+                        out.println("exception");
+                    }
+                %>
                     <div class="col-12 col-xl-4">
                         <div class="justify-content-end d-flex">
                             <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
