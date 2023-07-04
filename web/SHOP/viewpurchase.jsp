@@ -45,9 +45,9 @@
                         %>
                         <tr>
                             <td class="align-middle"><%=++slno%></td>
-                            <td><img src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 80px;width: 80px"><br><br>
+                            <td><img src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 80px;width: 80px"><br>
                                 <%=rs.getString("cpyproductname")%></td>
-                            <td style="line-height: 1.6;"><b><%=rs.getString("regno")%></b><br><%=rs.getString("cpyname")%><br><%=rs.getString("districtname")%><br><%=rs.getString("cityname")%><br><%=rs.getString("phone")%></td>
+                            <td style="line-height: 1.6;"><b><%=rs.getString("regno")%></b><br><%=rs.getString("cpyname")%><br><%=rs.getString("districtname")%>,<%=rs.getString("cityname")%><br><%=rs.getString("phone")%></td>
                             <td class="font-weight-bold align-middle"><br><%=rs.getString("quantity")%> <%=rs.getString("unit")%></td>
                             <td class="align-middle"><%=rs.getString("comment")%></td>
                             <td class="align-middle"><%=rs.getString("price")%></td>

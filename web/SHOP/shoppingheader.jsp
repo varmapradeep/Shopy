@@ -54,7 +54,7 @@
                             <li><a>Purchase</a>
                                 <ul class="sub-menu">
                                     <li><a href="viewpurchase.jsp">VIEW PURCHASE</a></li>
-                                    <li><a href="news.html">ADD PURCHASE</a></li>
+                                    <li><a href="purchase.jsp">ADD PURCHASE</a></li>
                                 </ul>
                             </li>
                             <li><a href="shop.html">Shop</a>

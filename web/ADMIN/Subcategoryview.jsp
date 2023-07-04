@@ -34,20 +34,15 @@
                         }
                     %>    
                 </select>
-
             </div>
         </div>
     </div>
-
-
     <div class="table_section padding_infor_info" id="cat">
         <div class="table-responsive-sm">
 
         </div>
     </div>
-
-</div>
-                
+</div>             
 <script>
     function displaysubcat()
     {

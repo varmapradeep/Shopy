@@ -1,6 +1,9 @@
 <jsp:include page ="Companyindex.jsp"/>
 <%@page import="java.sql.*" %>
 <%@page import="shoppackages.ShopClass"%>
+<%@page import="java.util.Date"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
@@ -13,21 +16,25 @@
                         String Query = "SELECT * FROM tbl_company WHERE loginid='" + loginid + "'";
                         ResultSet rs = st.executeQuery(Query);
                         while (rs.next()) {
-                %>
+                    %>
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                         <h3 class="font-weight-bold">Welcome <b><%=rs.getString("cpyname")%></b></h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                     </div>
-                     <%
+                    <%
+                            }
+                        } catch (Exception e) {
+                            out.println("exception");
                         }
-                    } catch (Exception e) {
-                        out.println("exception");
-                    }
-                %>
+                    %>
                     <div class="col-12 col-xl-4">
                         <div class="justify-content-end d-flex">
-                            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
+                            <%
+                            Date dNow = new Date();
+                            SimpleDateFormat ft = new SimpleDateFormat("dd.MM.YYYY");
+                            %>
+                            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">                               
+                                 <i class="mdi mdi-calendar"></i> Today (<%= ft.format(dNow) %>)
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
                                     <a class="dropdown-item" href="#">January - March</a>
                                     <a class="dropdown-item" href="#">March - June</a>

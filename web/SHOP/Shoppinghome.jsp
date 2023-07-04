@@ -70,13 +70,13 @@
                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100 align-content-center" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 300px" alt="First slide">
+                                        <img class="d-block w-100 align-content-center" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 300px;object-fit: contain" alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg2")%>' style="height: 300px" alt="Second slide">
+                                        <img class="d-block w-100" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg2")%>' style="height: 300px;object-fit: contain" alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg3")%>' style="height: 300px" alt="Second slide">
+                                        <img class="d-block w-100" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg3")%>' style="height: 300px;object-fit: contain" alt="third slide">
                                     </div>
 
                                 </div>

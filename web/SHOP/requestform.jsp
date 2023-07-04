@@ -9,7 +9,7 @@
         <div class="row">
             <%
                 try {
-                    String loginid = (String) session.getAttribute("loginid");
+                    String loginid = (String) session.getAttribute("loginid");  
                     int log = Integer.parseInt(loginid);
                     String id = request.getParameter("productid");
                     int num = Integer.parseInt(id);
@@ -25,13 +25,13 @@
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-90 align-content-center" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 300px" alt="First slide">
+                                <img class="d-block w-90 align-content-center" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 300px;object-fit: contain;" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-90" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg2")%>' style="height: 300px" alt="Second slide">
+                                <img class="d-block w-90" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg2")%>' style="height: 300px;object-fit: contain;" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-90" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg3")%>' style="height: 300px" alt="Second slide">
+                                <img class="d-block w-90" src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg3")%>' style="height: 300px;object-fit: contain;" alt="Second slide">
                             </div>
 
                         </div>
@@ -105,7 +105,7 @@
 
                                             <input type="hidden" name="productid" id="productid" value="<%= rs.getString("cpyproductid")%>">
                                             <input type="hidden" name="companyid" id="comid" value="<%= rs.getString("cpyid")%>">
-                                            <input type="hidden" name="unit" id="unit" value="<%= rs.getString("unitname")%>">
+                                            <input type="hidden" name="unit" id="unit" value="<%= rs.getString("unitid")%>">
                                             <input type="hidden" name="companyid" id="comid" value="<%= rs.getString("cpyid")%>">
 
 

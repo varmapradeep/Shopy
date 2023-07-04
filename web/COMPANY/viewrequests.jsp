@@ -7,7 +7,9 @@
 <div class="col-md-10 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <p class="card-title mb-0">Top Products</p>
+            <p class="card-title mb-0" style="text-align: center">Product Requests</p>
+            <br>
+            
             <div class="table-responsive">
                 <table class="table table-striped table-borderless">
                     <thead>
