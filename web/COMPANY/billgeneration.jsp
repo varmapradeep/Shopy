@@ -225,7 +225,8 @@
                 <script>
                     function cancel() {
                         alert("cancell printing the bill");
-                        window.location = "Companyhome.jsp";
+                        window.location = "viewrequestsbyshop.jsp";
+
                     }
                     function printInvoice() {
                         var invoiceContent = document.querySelector(".invoice").innerHTML;

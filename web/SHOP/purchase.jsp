@@ -6,15 +6,15 @@
 <div style="background-color: #07212e;height: 15%"></div>
 
 <div class="single-product mt-60 mb-150">
-    <p style="text-align: center;font-size: 35px;font-family: Copperplate Gothic;"><b>Purchase Form</b></p>
+    <p style="text-align: center;font-size: 25px;font-family: Copperplate Gothic;"><b>Purchase Form</b></p>
     <div class="container">
         <div class="row">
-            <div class="col-md-12" style="text-align: center;font-size: 25px;font-family: Copperplate Gothic;">
+            <div class="col-md-12" style="text-align: center;font-size: 18px;font-family: Copperplate Gothic;">
                     <p></p>
                 <div class="single-product-img" id="search">
                     <div>
                         <label>Bill No:</label>
-                        <input type="text" id="billno" placeholder="Enter Bill Number" value="1001" name="billno">
+                        <input type="text" id="billno" placeholder="Enter Bill Number" name="billno">
                     </div>
                     <p></p>
                     <div>

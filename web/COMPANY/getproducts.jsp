@@ -112,9 +112,11 @@
                                                 <!--                                            </tr>
                                                                                             <tr>-->
                                                 <td colspan="1"></td>
-                                                
+
                                                 <td>
                                                     <a href="bill.jsp?shopid=<%=shopid%>&requestedDate=<%=requestedDate%>&totalprice=<%=totalPrice%>" class="btn btn-primary mr-2" style="color: white">Generate Bill</a>
+                                                    <p></p>
+                                                    <a href="#" class="btn btn-danger mr-2" style="color: white" onclick="cancelAction()">    Cancel   </a>
                                                 </td>
                                             </tr>
                                         </tfoot>
@@ -135,4 +137,8 @@
         %>
     </body>
 </html>
-
+<script>
+    function cancelAction() {
+        window.location = "viewrequestsbyshop.jsp";
+    }
+</script>
