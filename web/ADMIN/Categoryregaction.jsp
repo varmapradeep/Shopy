@@ -8,20 +8,6 @@
 <%@page import="java.sql.*" %>--%>
 <%@page import="shoppackages.ShopClass" %>
 
-
-
-<%
-//    try {
-//        Connection con = ShopClass.getCon();
-//        Statement st = con.createStatement();
-//        String categoryname = request.getParameter("Category");
-//        String categoryimg = request.getParameter("Categoryimg");
-//        st.executeUpdate("insert into tbl_category (categoryname,categoryimage) values ('" + categoryname + "','" + categoryimg + "')");
-//        String redirectURL = "Category.jsp";
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
-%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>

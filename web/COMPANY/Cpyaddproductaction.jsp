@@ -86,9 +86,9 @@
                 String subcat = details.get(1);
                 String cpyprdname = details.get(2);
                 String cpyprddesc = details.get(3);
-                String stock = details.get(4);
-                String unit = details.get(5);
-                String price = details.get(6);
+//                String stock = details.get(4);
+                String unit = details.get(4);
+                String price = details.get(5);
 
                 String image1 = fileset.get(0);
                 String image2 = fileset.get(1);
@@ -99,7 +99,7 @@
                 Connection con = ShopClass.getCon();
                 Statement st = con.createStatement(); 
                 String loginid=(String)session.getAttribute("loginid");
-                String s = "insert into tbl_product(cmpyid,cpyproductname,cpyproductdesc,categoryid,subcategoryid,cpyprdstock,cpyprdunit,cpyprdprice,cpyproductimg1,cpyproductimg2,cpyproductimg3,date)values('" + loginid + "','" + cpyprdname + "','" + cpyprddesc + "','" + Category + "','" + subcat + "','" + stock + "','" + unit + "','" + price + "','" + image1 + "','" + image2 + "','" + image3 + "','" + ft.format(dNow) + "')";
+                String s = "insert into tbl_product(cmpyid,cpyproductname,cpyproductdesc,categoryid,subcategoryid,cpyprdunit,cpyprdprice,cpyproductimg1,cpyproductimg2,cpyproductimg3,date)values('" + loginid + "','" + cpyprdname + "','" + cpyprddesc + "','" + Category + "','" + subcat + "','" + unit + "','" + price + "','" + image1 + "','" + image2 + "','" + image3 + "','" + ft.format(dNow) + "')";
 
                 out.println(s);
                 st.executeUpdate(s);

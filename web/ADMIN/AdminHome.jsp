@@ -351,7 +351,7 @@
     <div class="container-fluid">
         <div class="footer">
             <p>Copyright © 2023 Designed by KeralaVarma. All rights reserved.<br><br>
-                Distributed By: <a href="https://themewagon.com/">KERALAVARMA</a>
+                Distributed By: <a href="#">KERALAVARMA</a>
             </p>
         </div>
     </div>

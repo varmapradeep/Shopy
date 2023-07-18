@@ -17,7 +17,6 @@
                             <th>Product Description</th>
                             <th>Category</th>
                             <th>Sub Category</th>
-                            <th>Available Stock</th>
                             <th>Price/Unit</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -40,7 +39,6 @@
                             <td><textarea readonly rows="4" cols="40" style="border: none;background-color: transparent;line-height: 1.1;"><%=rs.getString("cpyproductdesc")%></textarea></td>
                             <td><%=rs.getString("categoryname")%></td>
                             <td><%=rs.getString("subcategoryname")%></td>
-                            <td><%=rs.getString("cpyprdstock")%><%=rs.getString("unitname")%></td>
                             <td><%=rs.getString("cpyprdprice")%>Rs</td>
                             <td> <a class="btn btn-info" onclick="return confirm('Do u want to Edit Product?')" href="../COMPANY/cpyproductedit.jsp?productid=<%=rs.getString("cpyproductid")%>" ><i class="ti-pencil btn-icon-prepend"></i></a></td>
                             <td> <a class="btn btn-danger" onclick="return confirm('Do u want to Delete Product?')" href="../COMPANY/Categorydelete.jsp?productid=<%=rs.getString("cpyproductid")%>" ><i class="ti-trash btn-icon-prepend"></i></a></td>                   

@@ -63,13 +63,13 @@
 
                
         <div class="row">
-            <div class="col-sm-5">
+<!--            <div class="col-sm-5">
                 <div class="form-group">
                     <label  class="col-form-label">Product Stock</label>
                     <input type="text" class="form-control" id="stock" name="stock" placeholder="Product Stock">
                 </div>
-            </div>
-            <div class="col-sm-2">
+            </div>-->
+            <div class="col-sm-6">
                 <div class="form-group" id="cat">
                     <label  class="col-form-label">Unit</label>
                     <select class="form-control" name="unit" id="unit">
@@ -96,7 +96,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <div class="form-group">
                     <label  class="col-form-label">Product Price per Unit</label>
                     <input type="text" class="form-control" name="price" id="price" placeholder="Product Price">

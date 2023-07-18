@@ -45,7 +45,7 @@
                         <div class="main-menu-wrap">
                             <!-- logo -->
                             <div class="site-logo">
-                                <a href="index.html">
+                                <a href="Guestindex.jsp">
                                     <img src="assets/img/logo.png" alt="">
                                 </a>
                             </div>
@@ -57,15 +57,10 @@
                                     <li class="current-list-item"><a href="Guestindex.jsp">Home</a>
 
                                     </li>
-                                    <li class="current-list-item"><a href="about.html">About</a></li>
+                                    <li class="current-list-item"><a href="#">About</a></li>
 
-                                    <li class="current-list-item"><a href="news.html">News</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="news.html">News</a></li>
-                                            <li><a href="single-news.html">Single News</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="current-list-item"><a href="contact.html">Contact</a></li>
+                                  
+                                    <li class="current-list-item"><a href="#">Contact</a></li>
 
                                     <li class="current-list-item"><a>Log in</a>
                                         <ul class="sub-menu">
@@ -75,15 +70,9 @@
 
                                         </ul>
                                     </li>
-
-
-
-
-
-
                                     <li>
                                         <div class="header-icons">
-                                            <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                            <a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
                                             <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                         </div>
                                     </li>

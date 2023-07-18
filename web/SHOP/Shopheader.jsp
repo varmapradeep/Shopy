@@ -1,3 +1,4 @@
+
 <!-- title -->
 <title>Shopy-shop</title>
 
@@ -26,11 +27,11 @@
 
 
 <!--PreLoader-->
-<div class="loader">
+<!--<div class="loader">
     <div class="loader-inner">
         <div class="circle"></div>
     </div>
-</div>
+</div>-->
 <!--PreLoader Ends-->
 
 <!-- header -->
@@ -51,19 +52,21 @@
                     <nav class="main-menu">
                         <ul>
                             <li class="current-list-item"><a href="Shophome.jsp">Home</a></li>
-                            <li><a href="#">Company</a>
+                            <li><a href="#">Products</a>
                                 <ul class="sub-menu">
-                                    <li><a href="">Company Products</a></li>
+                                    <li><a href="products.jsp">Add Products</a></li>
+                                    <li><a href="productview.jsp">View Products</a></li>
+
 
                                 </ul>
                             </li>
-                            <li><a href="news.html">Purchase</a>
+                            <li><a href="news.html">Sales</a>
                                 <ul class="sub-menu">
-                                    <li><a href="news.html">Add Purchase</a></li>
-                                    <li><a href="news.html">View Purchase</a></li>
+                                    <li><a href="sales.jsp">Add Sales</a></li>
+                                    <li><a href="Salesview.jsp">View Sales</a></li>
                                 </ul>
                             </li>
-                            <li><a href="shop.html">Shop Products</a>
+                            <li><a href="shop.html">Feedback</a>
                                 <ul class="sub-menu">
                                     <li><a href="shop.html">Add Products</a></li>
                                     <li><a href="checkout.html" >View Products</a></li>

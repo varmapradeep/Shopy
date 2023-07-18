@@ -25,7 +25,7 @@
                                 ResultSet rs = st.executeQuery(Query);
                                 while (rs.next()) {
                         %>
-                        <form action="Categoryeditaction.jsp" method="post">
+                        <form action="Categoryeditaction.jsp" method="post" enctype="multipart/form-data" >
 
                             <fieldset>
                                 <div class="field">
@@ -37,10 +37,10 @@
                                     <label class="label_field">Description</label>
                                     <input type="text" name="Categorydec" value="<%=rs.getString("Categorydec")%>" placeholder="Category Description" />
                                 </div>
-                                <!--                                <div class="field">
-                                                                    <label class="label_field">Upload Image</label>
-                                                                    <input type="file" name="Categoryimg" placeholder="Upload Image" />
-                                                                </div>-->
+                                <div class="field">
+                                    <label class="label_field">Upload Image</label>
+                                    <input type="file" name="Categoryimg" placeholder="Upload Image" />
+                                </div>
 
                                 <div class="field margin_0">
                                     <label class="label_field hidden">hidden label</label>

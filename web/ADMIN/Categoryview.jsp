@@ -23,7 +23,7 @@
                         <th>Index No</th>
                         <th>Category Image</th>
                         <th>Category Name</th>
-                        <th>Categorydec</th>
+                        <th>Category Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
 

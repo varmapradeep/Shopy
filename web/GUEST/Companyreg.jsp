@@ -25,28 +25,28 @@
                     <h3>COMPANY REGISTRATION</h3>
 
                     <!--<p class="mb-6"></p>-->
-                    <form action="companyregaction.jsp" method="post" enctype="multipart/form-data">
+                    <form action="companyregaction.jsp" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                         <div class="form-group first">
                             <label>Company Name</label>
-                            <input type="text" class="form-control" placeholder="Enter your Company Name" name="companyname">
+                            <input type="text" class="form-control" placeholder="Enter your Company Name" name="companyname" required>
                         </div>
                         <div class="form-group first">
                             <label>Company Logo</label>
-                            <input type="file" class="form-control" name="companylogo">
+                            <input type="file" class="form-control" name="companylogo" required>
                         </div>
                         <div class="form-group first">
                             <label>Company Registration No</label>
-                            <input type="text" class="form-control" placeholder="Enter your Registration no" name="regno">
+                            <input type="text" class="form-control" placeholder="Enter your Registration no" name="regno" required>
                         </div>
                         <div class="form-group first">
                             <label>Phone no</label>
-                            <input type="text" class="form-control" placeholder="Enter your Phone no" name="phoneno">
+                            <input type="text" class="form-control" placeholder="Enter your Phone no" name="phoneno" required>
                         </div>
                         <div class="form-group first">
                             <div class="field">
                                 <div class="form-outline mb">
                                     <label class="label_field">District</label>
-                                    <select class="select form-control" name="District" id="distid" onchange="displaycity()">
+                                    <select class="select form-control" name="District" id="distid" onchange="displaycity()" required>
                                         <option disabled selected value="">Select District</option>
                                         <%
                                             try {
@@ -74,10 +74,10 @@
                             <div class="field">
                                 <div class="form-outline mb" id="loc">
                                     <label class="label_field">City</label>
-                                    <select class="select form-control" id="cityid" name="City">
+                                    <select class="select form-control" id="cityid" name="City" required>
                                         <option disabled selected value="">Select City</option>
 
-                                        
+
                                     </select>
                                 </div>
 
@@ -85,13 +85,14 @@
                         </div>
                         <div class="form-group first">
                             <label>E-mail</label>
-                            <input type="text" class="form-control" placeholder="Enter your E-mail id" name="email">
+                            <input type="text" class="form-control" placeholder="Enter your E-mail id" name="email" required>
                         </div>
                         <div class="form-group last mb-3">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password" name="password">
+                            <input type="password" class="form-control" placeholder="Your Password" name="password" required>
                         </div><br>
                         <input type="submit" value="Sign up" class="btn btn-block btn-primary">
+                        <input type="reset" value="Reset" class="btn btn-block btn-primary">
 
                     </form>
                 </div>
@@ -115,6 +116,60 @@
                 $("#loc").html(data2);
             }
         })
+    }
+
+    function validateForm() {
+        var companyname = document.getElementById("companyname").value;
+        var companylogo = document.getElementById("companylogo").value;
+        var regno = document.getElementById("regno").value;
+        var phoneno = document.getElementById("phoneno").value;
+        var District = document.getElementById("District").value;
+        var City = document.getElementById("City").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+
+        if (companyname.trim() === "") {
+            alert("Company name must be filled out");
+            return false;
+        }
+       
+
+        if (companylogo.trim() === "") {
+            alert("Company logo must be filled out");
+            return false;
+        }
+
+        if (regno.trim() === "") {
+            alert("Registration number of the shop must be filled out");
+            return false;
+        }
+
+        if (phoneno.trim() === "") {
+            alert("Phone Number must be filled out");
+            return false;
+        }
+
+        if (District.trim() === "") {
+            alert("Please select a District");
+            return false;
+        }
+
+        if (City.trim() === "") {
+            alert("Please select a City");
+            return false;
+        }
+
+        if (email.trim() === "") {
+            alert("E-mail must be filled out");
+            return false;
+        }
+        if (password.trim() === "") {
+            alert("Password must be filled out.<br> min 8 characters");
+            return false;
+        }
+
+        return true;
     }
 </script>                                      
 

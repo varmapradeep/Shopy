@@ -1,3 +1,6 @@
+<%@page import="java.sql.*"%>
+<%@page import="shoppackages.ShopClass"%>
+<%@page import="javafx.scene.control.Alert"%>
 <%@page import="shoppackages.ShopClass" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
@@ -9,12 +12,12 @@
 <%@page import="java.util.HashSet"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.util.Date"%>
+<%@ page import = "java.io.*,java.util.*" %>
+<%@ page import = "javax.servlet.*,java.text.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-
-    File file;
-
+<%    File file;
     ArrayList<String> fileset = new ArrayList();
+    HashSet<String> distinctFileNames = new HashSet();  // Use HashSet to store distinct file names
     ArrayList<String> details = new ArrayList();
     int maxFileSize = 50000 * 1024;
     int maxMemSize = 50000 * 1024;
@@ -24,7 +27,6 @@
     folder.mkdir();
     // Verify the content type
     String contentType = request.getContentType();
-//  out.println(contentType);
     if ((contentType.indexOf("multipart/form-data") >= 0)) {
 
         DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -41,7 +43,6 @@
             // Parse the request to get file items.
             List fileItems = upload.parseRequest(request);
             // Process the uploaded file items
-            //out.println("<br/>"+fileItems);
             Iterator i = fileItems.iterator();
 
             out.println("<html>");
@@ -52,7 +53,7 @@
             while (i.hasNext()) {
                 FileItem fi = (FileItem) i.next();
 
-                out.println("<br/>" + fi);
+//                out.println("<br/>" + fi);
                 if (!fi.isFormField()) {
                     // Get the uploaded file parameters
                     String fieldName = fi.getFieldName();
@@ -70,8 +71,9 @@
                     fi.write(file);
 
                     String fname = fileName.substring(fileName.lastIndexOf("\\") + 1);
-                    out.println("<br/>file:  " + fname);
+//                    out.println("<br/>file:  " + fname);
                     fileset.add(fname);
+                    distinctFileNames.add(fname);  // Add the file name to the HashSet
                 } else {
                     String key = fi.getString();
 
@@ -81,39 +83,33 @@
             }
 
             try {
-                String Subcategory = details.get(0);
-                String subcategorydesc = details.get(1);
-                String id = details.get(2);
+                String Category = details.get(0);
+                String Subcategory = details.get(1);
+                String subcategorydesc = details.get(2);
+                String id = details.get(3);
 
-                String Subcategoryimg1 = fileset.get(0);
-                out.println(Subcategoryimg1);
+                String subcatimg = fileset.get(0);
+
                 int num = Integer.parseInt(id);
 
-                Class.forName("com.mysql.jdbc.Driver");
-                String data = "jdbc:mysql://localhost:3306/dbshop";
-                Connection con = DriverManager.getConnection(data, "root", "");
-
+                Connection con = ShopClass.getCon();
                 Statement st = con.createStatement();
-
-                String s =("update tbl_subcategory set subcategoryimg='" + Subcategoryimg1 + "',subcategoryname='" + Subcategory + "',subcategorydesc='" + subcategorydesc + "' where subcategoryid='" + num + "'");
-
-                out.println(s);
+                String s = "UPDATE tbl_subcategory SET categoryid ='" + Category + "', subcategoryimg ='" + subcatimg + "', subcategoryname ='" + Subcategory + "', subcategorydesc ='" + subcategorydesc + "' WHERE subcategoryid ='" + num + "'";
+//               out.println(s);
                 st.executeUpdate(s);
                 st.close();
                 con.close();
-                out.println("closed");
-                // response.sendRedirect("vehsubreg.jsp");
             } catch (Exception e) {
                 out.println(e);
             }
 %>
-<!--<script>
+<script>
     alert("Sub-Category Updated Successfully");
-    window.location = "../Subcategoryview.jsp";
-</script>-->
-<%
-            out.println("</body>");
+    window.location = "Subcategoryview.jsp";
+</script>
+<%            out.println("</body>");
             out.println("</html>");
+
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -128,7 +124,3 @@
         out.println("</html>");
     }
 %>
-
-
-
-

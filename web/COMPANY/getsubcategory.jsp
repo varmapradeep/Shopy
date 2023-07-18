@@ -16,10 +16,7 @@
 <label  class="col-form-label">Product Subcategory</label>
 <select class="form-control" id="subcat" name="subcat">
     <option disabled selected value="">Select Category</option>
-    
 
-
-        <!--<option value="0">city</option>-->
 
         <%
             while (rs.next()) {

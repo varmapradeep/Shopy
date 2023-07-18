@@ -33,9 +33,7 @@
                                 String loginid = (String) session.getAttribute("loginid");
                                 Connection con = ShopClass.getCon();
                                 Statement st = con.createStatement();
-                                String Query = "SELECT * FROM tbl_request tr INNER JOIN tbl_product tp ON tr.productid=tp.cpyproductid INNER JOIN tbl_shop ts ON ts.shopid=tr.shopid  INNER JOIN tbl_company tc ON tr.companyid=tc.cpyid INNER JOIN tbl_district tdd ON tdd.districtid=tc.district INNER JOIN tbl_city tcc ON tcc.cityid=tc.city  INNER JOIN tbl_login tl ON tl.loginid=ts.loginid WHERE ts.loginid='" + loginid + "' ORDER BY tr.regdate DESC;";
-
-//                                String Query = "SELECT * FROM tbl_request tr INNER JOIN tbl_product tp ON tr.productid=tp.cpyproductid INNER JOIN tbl_shop ts ON ts.shopid=tr.shopid  INNER JOIN tbl_company tc ON tr.companyid=tc.cpyid INNER JOIN tbl_district tdd ON tdd.districtid=tc.district INNER JOIN tbl_city tcc ON tcc.cityid=tc.city  INNER JOIN tbl_login tl ON tl.loginid=ts.loginid WHERE ts.loginid='" + loginid + "';";
+                                String Query = "SELECT * FROM tbl_request tr INNER JOIN tbl_product tp ON tr.productid=tp.cpyproductid INNER JOIN tbl_shop ts ON ts.shopid=tr.shopid  INNER JOIN tbl_company tc ON tr.companyid=tc.cpyid INNER JOIN tbl_district tdd ON tdd.districtid=tc.district INNER JOIN tbl_city tcc ON tcc.cityid=tc.city INNER JOIN tbl_unit tuz ON tuz.unitid=tr.unit INNER JOIN tbl_login tl ON tl.loginid=ts.loginid WHERE ts.loginid='" + loginid + "' ORDER BY tr.regdate DESC;";
                                 ResultSet rs = st.executeQuery(Query);
                                 while (rs.next()) {
                                     boolean showCancelButton = false;
@@ -48,7 +46,7 @@
                             <td><img src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 80px;width: 80px"><br>
                                 <%=rs.getString("cpyproductname")%></td>
                             <td style="line-height: 1.6;"><b><%=rs.getString("regno")%></b><br><%=rs.getString("cpyname")%><br><%=rs.getString("districtname")%>,<%=rs.getString("cityname")%><br><%=rs.getString("phone")%></td>
-                            <td class="font-weight-bold align-middle"><br><%=rs.getString("quantity")%> <%=rs.getString("unit")%></td>
+                            <td class="font-weight-bold align-middle"><br><%=rs.getString("quantity")%> <%=rs.getString("unitname")%></td>
                             <td class="align-middle"><%=rs.getString("comment")%></td>
                             <td class="align-middle"><%=rs.getString("price")%></td>
                             <td class="align-middle"><%=rs.getString("regdate")%></td>

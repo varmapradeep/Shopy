@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="table_section padding_infor_info">
-        <div class="table-hover table-responsive-sm table-bordered">
+        <div class="table-hover table-responsive-md">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
