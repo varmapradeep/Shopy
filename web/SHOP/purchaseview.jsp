@@ -7,7 +7,6 @@
 <div style="background-color: #07212e; height: 15%">
     <p>
 </div>
-
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">

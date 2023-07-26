@@ -26,6 +26,7 @@
         if (shopIdResultSet.next()) {
             shopId = shopIdResultSet.getString("Shopid");
         }
+        
 
         String insertQuery = "INSERT INTO tbl_payment (billno, Shopid, totalamount, Amountpaid, Balance, Paymentdate, Status) VALUES (?, ?, ?, ?, ?, ?, 'Completed')";
         PreparedStatement preparedStatement = con.prepareStatement(insertQuery);
@@ -46,6 +47,13 @@
         updateStatement.setString(2, billNo);
         updateStatement.executeUpdate();
         updateStatement.close();
+        
+//        String updateQuery1 = "UPDATE tbl_request SET status = 'Delivered' WHERE shopid = ? AND regdate=? AND status='Shipped' AND companyid=?";
+//        PreparedStatement updateStatement1 = con.prepareStatement(updateQuery1);
+//        updateStatement1.setString(1, shopId);
+//        updateStatement1.setString(2, billNo);
+//        updateStatement1.executeUpdate();
+//        updateStatement1.close();
 
         con.close();
     } catch (Exception e) {

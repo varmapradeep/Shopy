@@ -70,6 +70,7 @@
                             <label  class="col-form-label">Product Subcategory</label>
                             <select class="form-control" id="subcat" name="subcat">
                                 <option disabled selected value="catid"><%= subcategoryname%></option>
+                                
                             </select>
                         </div>
                     </div>

@@ -87,6 +87,7 @@
                 String Categorydec = details.get(1);
                 String id = details.get(2);
                 String Categoryimg = fileset.get(0);
+                String img = details.get(3);
 
                 Connection con = ShopClass.getCon();
                 Statement st = con.createStatement();

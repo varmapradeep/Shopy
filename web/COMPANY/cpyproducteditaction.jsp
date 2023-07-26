@@ -100,7 +100,7 @@
                 Statement st = con.createStatement();
                 String loginid = (String) session.getAttribute("loginid");
                 String s = "UPDATE tbl_product SET cpyproductname='" + cpyprdname + "', cpyproductdesc='" + cpyprddesc + "', categoryid='" + cate + "', subcategoryid='" + subcat + "',cpyprdunit='" + unit + "', cpyprdprice='" + price + "', cpyproductimg1='" + image1 + "', cpyproductimg2='" + image2 + "', cpyproductimg3='" + image3 + "', date='" + ft.format(dNow) + "' WHERE cmpyid='" + loginid + "' AND cpyproductid='"+productid+"'";
-                out.println(s);
+//                out.println(s);
                 st.executeUpdate(s);
                 st.close();
                 con.close();
@@ -111,7 +111,7 @@
 %>
 <script>
     alert("Product updated Successfully");
-    window.location = "Cmpaddproduct.jsp";
+    window.location = "cpyviewproducts.jsp";
 </script>
 <%
             out.println("</body>");

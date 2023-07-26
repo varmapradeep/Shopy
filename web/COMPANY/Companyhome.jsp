@@ -21,20 +21,15 @@
                         <h3 class="font-weight-bold">Welcome <b><%=rs.getString("cpyname")%></b></h3>
                         <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                     </div>
-                    <%
-                            }
-                        } catch (Exception e) {
-                            out.println("exception");
-                        }
-                    %>
+
                     <div class="col-12 col-xl-4">
                         <div class="justify-content-end d-flex">
                             <%
-                            Date dNow = new Date();
-                            SimpleDateFormat ft = new SimpleDateFormat("dd.MM.YYYY");
+                                Date dNow = new Date();
+                                SimpleDateFormat ft = new SimpleDateFormat("dd.MM.YYYY");
                             %>
                             <div class="dropdown flex-md-grow-1 flex-xl-grow-0">                               
-                                 <i class="mdi mdi-calendar"></i> Today (<%= ft.format(dNow) %>)
+                                <i class="mdi mdi-calendar"></i> Today (<%= ft.format(dNow)%>)
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
                                     <a class="dropdown-item" href="#">January - March</a>
                                     <a class="dropdown-item" href="#">March - June</a>
@@ -69,22 +64,68 @@
             <div class="col-md-6 grid-margin transparent">
                 <div class="row">
                     <div class="col-md-6 mb-4 stretch-card transparent">
+                        <%
+                            try {
+                                String shopidQuery = "SELECT shopid FROM tbl_shop WHERE loginid='" + loginid + "'";
+                                ResultSet shopIdResultSet = st.executeQuery(shopidQuery);
+                                String shopId = "";
+                                if (shopIdResultSet.next()) {
+                                    shopId = shopIdResultSet.getString("Shopid");
+                                }
+
+                                String todaybook = "SELECT COUNT(requestid) AS request_count FROM tbl_request WHERE companyid = ? AND regdate = ?";
+                                PreparedStatement stmt = con.prepareStatement(todaybook);
+                                stmt.setString(1, shopId);
+                                stmt.setString(2, ft.format(dNow));
+                                ResultSet rs1 = stmt.executeQuery();
+
+                                while (rs1.next()) {
+                        %>
                         <div class="card card-tale">
                             <div class="card-body">
-                                <p class="mb-4">Today?s Bookings</p>
-                                <p class="fs-30 mb-2">4006</p>
-                                <p>10.00% (30 days)</p>
+                                <p class="mb-4">Today's Bookings</p>
+                                <p class="fs-30 mb-2"><%= rs1.getInt("request_count") %></p>
+                                <!--<p>10.00% (30 days)</p>-->
                             </div>
                         </div>
+                        <%
+                                }
+                            } catch (Exception e) {
+                                out.println("exception");
+                            }
+                        %>
                     </div>
+
                     <div class="col-md-6 mb-4 stretch-card transparent">
+                        <%
+                            try {
+                                String shopidQuery = "SELECT shopid FROM tbl_shop WHERE loginid='" + loginid + "'";
+                                ResultSet shopIdResultSet = st.executeQuery(shopidQuery);
+                                String shopId = "";
+                                if (shopIdResultSet.next()) {
+                                    shopId = shopIdResultSet.getString("Shopid");
+                                }
+
+                                String todaybook = "SELECT COUNT(requestid) AS request_count FROM tbl_request WHERE companyid = ?";
+                                PreparedStatement stmt = con.prepareStatement(todaybook);
+                                stmt.setString(1, shopId);
+                                ResultSet rs1 = stmt.executeQuery();
+
+                                while (rs1.next()) {
+                        %>
                         <div class="card card-dark-blue">
                             <div class="card-body">
                                 <p class="mb-4">Total Bookings</p>
-                                <p class="fs-30 mb-2">61344</p>
-                                <p>22.00% (30 days)</p>
+                                <p class="fs-30 mb-2"><%= rs1.getInt("request_count") %></p>
+                                <!--<p>22.00% (30 days)</p>-->
                             </div>
                         </div>
+                        <%
+                                }
+                            } catch (Exception e) {
+                                out.println("exception");
+                            }
+                        %>
                     </div>
                 </div>
                 <div class="row">
@@ -188,16 +229,21 @@
                     </div>
                 </div>
             </div>
-
+            <%
+                    }
+                } catch (Exception e) {
+                    out.println("exception");
+                }
+            %>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             <footer class="footer">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="#" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
                     <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
                 </div>
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="#" target="_blank">Themewagon</a></span> 
                 </div>
             </footer> 
             <!-- partial -->

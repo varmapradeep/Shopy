@@ -35,7 +35,7 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
+                        <a href="#">
                             <img src="assets/img/logo1.png" alt="error">
                         </a>
                     </div>
@@ -43,7 +43,7 @@
                     <nav class="main-menu">
                         <ul>
                             <li class="current-list-item"><a href="Shoppinghome.jsp">Home</a></li>
-                            <li><a href="about.html">About</a></li>
+                            <li><a href="#">About</a></li>
 
                             <li><a href="#">Buy</a>
                                 <ul class="sub-menu">
@@ -59,20 +59,21 @@
 
                                 </ul>
                             </li>
-                            <li><a href="shop.html">Shop</a>
+                            <li><a href="#">Shop</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shop.html">Add Products</a></li>
-                                    <li><a href="checkout.html">View Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="#">Add Products</a></li>
+                                    <li><a href="#">View Products</a></li>
+                                    <li><a href="#">Single Product</a></li>
+                                    <li><a href="#">Cart</a></li>
                                 </ul>
                             </li>
+                             <li><a href="Shophome.jsp">Shop View</a></li>
                             <li><a href="../GUEST/Guestindex.jsp" onclick="return confirm('Do u want to Logout?')">Logout</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                                    <a href="Shophome.jsp"><i class="fas fa-sync-alt"> Switch back to Shop</i></a>
+                                    <!--<a href="Shophome.jsp"><i class="fas fa-sync-alt"> Switch back to Shop</i></a>-->
 
                                 </div>
                             </li>

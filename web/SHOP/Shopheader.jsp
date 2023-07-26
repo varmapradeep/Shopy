@@ -42,7 +42,7 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
+                        <a href="#">
                             <img src="assets/img/logo1.png" alt="error">
                         </a>
                     </div>
@@ -60,24 +60,26 @@
 
                                 </ul>
                             </li>
-                            <li><a href="news.html">Sales</a>
+                            <li><a>Sales</a>
                                 <ul class="sub-menu">
                                     <li><a href="sales.jsp">Add Sales</a></li>
+                                    <li><a href="selectproductview.jsp">View Selected</a></li>
+
                                     <li><a href="Salesview.jsp">View Sales</a></li>
+
                                 </ul>
                             </li>
-                            <li><a href="shop.html">Feedback</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Add Products</a></li>
-                                    <li><a href="checkout.html" >View Products</a></li>
-                                </ul>
+                            <li><a href="feedback.jsp">Feedback</a>
+
                             </li>
+                            <li><a href="Shoppinghome.jsp">Shopping View</a></li>
+
                             <li><a href="../GUEST/Guestindex.jsp" onclick="return confirm('Do u want to Logout?')">Logout</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                                    <a href="Shoppinghome.jsp"><i class="fas fa-sync-alt"> Switch to Shopping</i></a>
+                                    <!--<a href="Shoppinghome.jsp"><i class="fas fa-sync-alt"> Switch to Shopping</i></a>-->
 
                                 </div>
                             </li>

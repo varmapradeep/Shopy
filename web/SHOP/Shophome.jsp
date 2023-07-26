@@ -12,8 +12,8 @@
 								<p class="subtitle">Fresh & Organic</p>
 								<h1>Delicious Seasonal Fruits</h1>
 								<div class="hero-btns">
-									<a href="error.jsp" class="boxed-btn">Visit Shop</a>
-									<a href="error.jsp" class="bordered-btn">Contact Us</a>
+									<a href="Shoppinghome.jsp" class="boxed-btn">Shopping</a>
+									<a href="#" class="bordered-btn">Contact Us</a>
 								</div>
 							</div>
 						</div>
@@ -31,8 +31,8 @@
 								<p class="subtitle">Fresh Everyday</p>
 								<h1>100% Organic Collection</h1>
 								<div class="hero-btns">
-									<a href="error.jsp" class="boxed-btn">Visit Shop</a>
-									<a href="error.jsp" class="bordered-btn">Contact Us</a>
+									<a href="Shoppinghome.jsp" class="boxed-btn">Shopping</a>
+									<a href="#" class="bordered-btn">Contact Us</a>
 								</div>
 							</div>
 						</div>

@@ -6,20 +6,7 @@
 <%
     int slno = 0;
 %>
-<%
-    try {
-        String loginid = (String) session.getAttribute("loginid");
-        Connection con = ShopClass.getCon();
-        Statement st = con.createStatement();
-        String subcat = request.getParameter("val");
-        String catid = request.getParameter("value");
 
-        String Query = "SELECT * FROM tbl_shpproducts ts INNER JOIN tbl_shop s ON ts.prdshopid=s.shopid INNER JOIN tbl_subcategory tsub ON tsub.subcategoryid=ts.subcategory INNER JOIN tbl_category tcat ON tcat.categoryid=ts.category INNER JOIN tbl_unit tu ON tu.unitid=ts.prdunit WHERE tsub.subcategoryid='" + subcat + "' AND tcat.categoryid='" + catid + "'  ORDER BY prdregdate DESC;";
-        ResultSet rs = st.executeQuery(Query);
-        while (rs.next()) {
-
-//            out.println(Query);
-%>
 
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card"  id="display">
@@ -38,7 +25,31 @@
 
                         </tr>
                     </thead>
-                    <tbody>                       
+
+                    <tbody> 
+                        <%
+                            try {
+                                String loginid = (String) session.getAttribute("loginid");
+                                Connection con = ShopClass.getCon();
+                                Statement st = con.createStatement();
+
+                                String shopidQuery = "SELECT Shopid FROM tbl_login tl INNER JOIN tbl_shop ts ON ts.loginid=tl.loginid WHERE tl.loginid='" + loginid + "'";
+                                ResultSet shopIdResultSet = st.executeQuery(shopidQuery);
+                                String shopId = "";
+                                if (shopIdResultSet.next()) {
+                                    shopId = shopIdResultSet.getString("Shopid");
+                                } else {
+                                    response.sendRedirect("../GUEST/Guestindex.jsp");
+
+                                }
+                                String subcat = request.getParameter("val");
+                                String catid = request.getParameter("value");
+
+                                String Query = "SELECT * FROM tbl_shpproducts ts INNER JOIN tbl_shop s ON ts.prdshopid=s.shopid INNER JOIN tbl_subcategory tsub ON tsub.subcategoryid=ts.subcategory INNER JOIN tbl_category tcat ON tcat.categoryid=ts.category INNER JOIN tbl_unit tu ON tu.unitid=ts.prdunit WHERE tsub.subcategoryid='" + subcat + "' AND tcat.categoryid='" + catid + "' AND ts.prdshopid='" + shopId + "'  ORDER BY prdregdate DESC;";
+                                ResultSet rs = st.executeQuery(Query);
+                                while (rs.next()) {
+
+                        %>
                         <tr>
 
                             <td class="align-middle"><%=++slno%></td>
@@ -51,6 +62,14 @@
                                         class ="bi bi-plus" style="font-size: 30px">+</a>
                             </td>
                         </tr>  
+                        <%
+                                }
+                            } catch (Exception e) {
+                                out.println("Exception occurred: " + e.getMessage());
+
+                            }
+
+                        %>
                     </tbody>
                 </table>
             </div>
@@ -58,14 +77,7 @@
     </div>
 </div> 
 
-<%
-        }
-    } catch (Exception e) {
-        out.println("Exception occurred: " + e.getMessage());
 
-    }
-
-%>
 <script>
     function updateLink(link) {
         link.innerHTML = '&#10004;'; // HTML entity for the tick mark symbol

@@ -63,9 +63,8 @@
         ps.close();
 
         for (String requestId : requestIds) {
-            st.executeUpdate("UPDATE tbl_request SET status = 'Confirmed' WHERE requestid = '" + requestId + "'"); // Step 3
+            st.executeUpdate("UPDATE tbl_request SET status = 'Shipped' WHERE requestid = '" + requestId + "'"); // Step 3
         }
-
 
 %>
 

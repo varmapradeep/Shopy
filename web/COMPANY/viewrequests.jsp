@@ -32,7 +32,7 @@
                                 String loginid = (String) session.getAttribute("loginid");
                                 Connection con = ShopClass.getCon();
                                 Statement st = con.createStatement();
-                                String Query = "SELECT * FROM tbl_request tr INNER join tbl_product tp on tr.productid = tp.cpyproductid INNER JOIN tbl_shop ts ON tr.shopid=ts.shopid INNER JOIN tbl_district tdd on tdd.districtid=ts.district INNER join tbl_city tcc ON tcc.cityid=ts.city INNER JOIN tbl_company tc on tr.companyid=tc.cpyid INNER JOIN tbl_login tl on tl.loginid=tc.loginid WHERE tl.loginid='" + loginid + "' AND tr.status = 'Requested';";
+                                String Query = "SELECT * FROM tbl_request tr INNER join tbl_product tp on tr.productid = tp.cpyproductid INNER JOIN tbl_shop ts ON tr.shopid=ts.shopid INNER JOIN tbl_district tdd on tdd.districtid=ts.district INNER join tbl_city tcc ON tcc.cityid=ts.city INNER JOIN tbl_company tc on tr.companyid=tc.cpyid INNER JOIN tbl_unit tuz ON tuz.unitid=tr.unit INNER JOIN tbl_login tl on tl.loginid=tc.loginid WHERE tl.loginid='"+loginid+"' AND tr.status = 'Requested'";
                                 ResultSet rs = st.executeQuery(Query);
                                 while (rs.next()) {
                         %>
@@ -41,7 +41,7 @@
                             <td><img src='../COMPANY/images/Product/<%=rs.getString("cpyproductimg1")%>' style="height: 80px;width: 80px"><br><br>
                                 <%=rs.getString("cpyproductname")%></td>
                             <td style="line-height: 1.6;"><b><%=rs.getString("ownername")%></b><br><%=rs.getString("shopname")%><br><%=rs.getString("districtname")%><br><%=rs.getString("cityname")%><br><%=rs.getString("phoneno")%></td>
-                            <td class="font-weight-bold"><br><%=rs.getString("quantity")%> <%=rs.getString("unit")%></td>
+                            <td class="font-weight-bold"><br><%=rs.getString("quantity")%> <%=rs.getString("unitname")%></td>
                             <td><%=rs.getString("comment")%></td>
                             <td><%=rs.getString("price")%></td>
                             <td><%=rs.getString("regdate")%></td>

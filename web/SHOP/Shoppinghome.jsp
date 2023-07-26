@@ -13,14 +13,14 @@
     <div class="single-homepage-slider homepagee-bgg-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="col-lg-12 offset-lg-1 text-center">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
                             <p class="subtitle">Fresh & Organic</p>
                             <h1>Delicious Seasonal Fruits</h1>
                             <div class="hero-btns">
-                                <a href="error.jsp" class="boxed-btn">Visit Shop</a>
-                                <a href="error.jsp" class="bordered-btn">Contact Us</a>
+                                <a href="Shophome.jsp" class="boxed-btn">Visit Shop</a>
+                                <a href="#" class="bordered-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -32,14 +32,14 @@
     <div class="single-homepage-slider homepagee-bgg-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="col-lg-12 offset-lg-1 text-center">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
                             <p class="subtitle">Fresh Everyday</p>
                             <h1>100% Organic Collection</h1>
                             <div class="hero-btns">
-                                <a href="error.jsp" class="boxed-btn">Visit Shop</a>
-                                <a href="error.jsp" class="bordered-btn">Contact Us</a>
+                                <a href="Shophome.jsp" class="boxed-btn">Visit Shop</a>
+                                <a href="#" class="bordered-btn">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         ResultSet rs = st.executeQuery(Query);
                         while (rs.next()) {
                 %>
-                <div class="col-lg-4 col-md-12 text-center strawberry">
+                <div class="col-lg-3 col-md-12 text-center strawberry">
                     <div class="single-product-item">
                         <div class="product-image">
                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">

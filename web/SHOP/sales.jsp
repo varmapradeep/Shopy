@@ -44,11 +44,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-</div>
-</form>
+    </form>
 </div>
 <div class="col-md-12 grid-margin stretch-card" id="display">
     <div class="card">
@@ -63,7 +60,7 @@
                             <th>Product Description</th>                           
                             <th>Available stock</th>
                             <th>Price/Unit</th>
-                            <th>Add to Cart<th>
+                            <th>Add to list<th>
 
                         </tr>
                     </thead>
@@ -91,7 +88,7 @@
 
                             <td class="align-middle"><%=++slno%></td>
                             <td class="align-middle"><%=rs.getString("prdname")%></td>
-                            <td class="align-middle"><%=rs.getString("subcategoryname")%></td>
+                            <td class="align-middle"><%=rs.getString("prddesc")%></td>
                             <td class="align-middle"><%=rs.getString("prdstock")%> <%=rs.getString("unitname")%></td>
                             <td class="align-middle"><%=rs.getString("prdprice")%></td>
                             <td class="align-middle">

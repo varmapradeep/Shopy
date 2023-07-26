@@ -29,11 +29,11 @@
         }
         shopIdResultSet.close();
 
-// 
-
         st.executeUpdate("insert into tbl_shpproducts (prdshopid,category,subcategory,prdname,prddesc,prdstock,prdunit,prdprice,prdregdate)"
                 + " values ('" + shopId + "','" + Category + "','" + subcate + "','" + prdname + "','" + prddesc + "','" + prdstock + "','" + prdunit + "','" + prdprice + "','" + ft.format(dNow) + "')");
-    } catch (Exception e) {
+    } 
+    catch (Exception e) 
+    {
         out.println("Exception occurred: " + e.getMessage());
 
     }

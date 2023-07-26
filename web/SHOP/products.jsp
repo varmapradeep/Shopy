@@ -7,7 +7,7 @@
 <div class="single-product mt-60 mb-150">
     <p style="text-align: center;font-size: 30px;font-family: Copperplate Gothic;"><b>Add Products</b></p>
     <form class="container" style="display: flex; justify-content: center;" action="productaction.jsp">
-        <div class="col-md-6" style="text-align: left;font-size: 15px;">
+        <div class="col-md-6" style="text-align: left;font-size: 20px;">
             <p></p>
             <div class="single-product-img">
                 <div class="form-group">
