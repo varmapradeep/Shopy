@@ -24,8 +24,8 @@
 
 // 
 
-        st.executeUpdate("insert into tbl_selectedproducts (shopid,productid,qty,status)"
-                + " values ('" + shopId + "','" + productid + "','','Selected')");
+        st.executeUpdate("insert into tbl_selectedproducts (shopid,productid,qty,prdtotal,status)"
+                + " values ('" + shopId + "','" + productid + "','','0','Selected')");
     } catch (Exception e) {
         out.println("Exception occurred: " + e.getMessage());
 

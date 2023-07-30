@@ -20,24 +20,16 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
-                    <h3>Login to <strong><b>SHOPY</b></strong></h3>
+                    <h3>LOGIN to <strong><b>SHOPY</b></strong></h3>
                     <h5>Shop Managament System</h5>
 
                     <p class="mb-4">Manage our whole shop online</p>
-                    <form action="loginaction.jsp" method="post">
+                    <form action="otpaction.jsp" method="post">
                         <div class="form-group first">
-                            <label for="username">Username</label>
-                            <input type="email" class="form-control" placeholder="Your E-mail" name="username">
+                            <label>Otp</label>
+                            <input type="text" class="form-control" placeholder="Enter your otp" name="verifyotp">
                         </div>
-                        <div class="form-group last mb-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password" name="password">
-                        </div>
-                        <div class="d-flex mb-5 align-items-center">
-
-                            <span class="ml-auto"><a href="forgot.jsp" class="forgot-pass">Forgot Password</a></span> 
-                        </div>
-                        <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                        <input type="submit"  value="Verify Otp" class="btn btn-block btn-primary">
                     </form>
                 </div>
             </div>

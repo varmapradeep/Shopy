@@ -13,7 +13,6 @@
 <%@ page import = "javax.servlet.*,java.text.*" %>
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     File file;
@@ -27,7 +26,7 @@
     folder.mkdir();
     // Verify the content type
     String contentType = request.getContentType();
-    
+
     if ((contentType.indexOf("multipart/form-data") >= 0)) {
         DiskFileItemFactory factory = new DiskFileItemFactory();
         // maximum size that will be stored in memory
@@ -98,84 +97,104 @@
                     SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd");
                     String s = "insert into tbl_company(cpyname,cpylogo,regno,phone,district,city,loginid,regdate) values('" + companyname + "','" + companylogo + "','" + regno + "','" + phoneno + "','" + District + "','" + City + "','" + loginid + "','" + ft.format(dNow) + "')";
                     st.executeUpdate(s);
-                    
-                    // Send email notification
-                    // Sender's and recipient's email address
-                    String senderEmail = "keralabloodbank2023@gmail.com";
-                    String recipientEmail = email;
-
-                    // SMTP server configuration
-                    String host = "smtp.gmail.com";
-                    String port = "587";
-                    final String finalUsername = senderEmail;
-                    final String finalPassword = "mlqalukpbrmwetiv";
-
-                    // Set properties and authentication
-                    Properties props = new Properties();
-                    props.put("mail.smtp.host", host);
-                    props.put("mail.smtp.port", port);
-                    props.put("mail.smtp.auth", "true");
-                    props.put("mail.smtp.starttls.enable", "true");
-
-                    // Create a Session with authentication
-                    Authenticator auth = new Authenticator() {
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(finalUsername, finalPassword);
-                        }
-                    };
-                    Session sessions = Session.getInstance(props, auth);
-
-                    // Create a default MimeMessage object
-                    MimeMessage message = new MimeMessage(sessions);
-
-                    // Set From: header field
-                    message.setFrom(new InternetAddress(senderEmail));
-
-                    // Set To: header field
-                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
-
-                    // Set Subject: header field
-                    message.setSubject("Registration Successful");
-
-                    // Set message content
-                    String emailContent = "Hello, your company has been registered successfully.";
-                    message.setText(emailContent);
-
-                    // Send the message
-                    Transport.send(message);
                 } else {
 %>
 <script>
     alert("Failed to Register");
 </script>
 <%
-                }
-                st.close();
-                con.close();
-                out.println("closed");
-                // response.sendRedirect("vehsubreg.jsp");
-            } catch (Exception e) {
-                out.println(e);
-            }
-        %>
+        }
+        st.close();
+        con.close();
+        out.println("closed");
+    } catch (Exception e) {
+        out.println(e);
+    }
+%>
 <script>
     alert("Company Registration Successful");
     window.location = "Guestindex.jsp";
 </script>
 <%
+            out.println("</body>");
+            out.println("</html>");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    } else {
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Servlet upload</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<p>No file uploaded</p>");
         out.println("</body>");
         out.println("</html>");
-    } catch (Exception ex) {
-        System.out.println(ex);
     }
-} else {
-    out.println("<html>");
-    out.println("<head>");
-    out.println("<title>Servlet upload</title>");
-    out.println("</head>");
-    out.println("<body>");
-    out.println("<p>No file uploaded</p>");
-    out.println("</body>");
-    out.println("</html>");
-}
+ // Send email notification
+    String senderEmail = "shopy4shop@gmail.com";
+    String recipientEmail =details.get(5) ;
+    String companyName = details.get(0);
+    String imageURL = "https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg";
+
+    // SMTP server configuration
+    String host = "smtp.gmail.com";
+    String port = "587";
+    final String finalUsername = senderEmail;
+    final String finalPassword = "pkkrixqzuimlnxtt";
+
+    // Set properties and authentication
+    Properties props = new Properties();
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.port", port);
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+
+    // Create a Session with authentication
+    Authenticator auth = new Authenticator() {
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(finalUsername, finalPassword);
+        }
+    };
+    Session sessions = Session.getInstance(props, auth);
+
+    try {
+        // Create a default MimeMessage object
+        MimeMessage message = new MimeMessage(sessions);
+
+        // Set From: header field
+        message.setFrom(new InternetAddress(senderEmail));
+
+        // Set To: header field
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
+
+        // Set Subject: header field
+        message.setSubject("Congratulations " + companyName + " Your Company is now on Shopy");
+
+        // Set message content
+        String emailContent = "<html>"
+                + "<body style=\"font-family: Arial, sans-serif;\">"
+                + "<div style=\"background-image: url('" + imageURL + "');padding: 30px;\">"
+                + "<h1 style=\"color: #007BFF;\">Welcome to Shopy</h1>"
+                + "<h2 style=\"color: #A70D2A;\">Congratulations " + companyName + "</h2>"
+                + "<p>Your company, " + companyName + ", is now listed on Shopy. We are thrilled to have you onboard! Now you can start showcasing your products and services to millions of potential customers.</p>"
+                + "<p>Log in to your Shopy dashboard and start managing your company profile with easy.Thank you for choosing Shopy as your platform to reach a wider audience</p>"
+                + "<p>From Shopy Team</p>"
+                + "<div style=\"text-align: center;\">"
+                + "<a href=\"https://www.shopy.com/dashboard\" style=\"background-color: #007BFF; color: #ffffff; padding: 10px 20px; border-radius: 5px; text-decoration: none;\">"
+                + "Go to Shopy Dashboard"
+                + "</a>"
+                + "</div>"
+                + "</div>"
+                + "</body>"
+                + "</html>";
+
+        message.setContent(emailContent, "text/html");
+
+        // Send the message
+        Transport.send(message);
+    } catch (MessagingException e) {
+        e.printStackTrace();
+    }  
 %>
+

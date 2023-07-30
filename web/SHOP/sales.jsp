@@ -92,8 +92,8 @@
                             <td class="align-middle"><%=rs.getString("prdstock")%> <%=rs.getString("unitname")%></td>
                             <td class="align-middle"><%=rs.getString("prdprice")%></td>
                             <td class="align-middle">
-                                <a href="selectproduct.jsp?productid=<%=rs.getString("shpproductid")%>" onclick="updateLink(this);
-                                        class ="bi bi-plus" style="font-size: 30px">+</a>
+                               <a href="selectproduct.jsp?productid=<%=rs.getString("shpproductid")%>" onclick="updateLink(this);" class="bi bi-plus" style="font-size: 30px">+</a>
+
                             </td>
 
 

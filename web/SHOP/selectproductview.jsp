@@ -55,46 +55,48 @@
                                                 double prdtotal = 0;
                                 %>
                                 <tr class="table-body-row">
-                                    <input type="hidden" name="shpproductid[]" value="<%= productid%>">
-                                    <input type="hidden" name="prdquantity[]" value="<%= prdquantity%>">
-                                    <input type="hidden" name="prdtotal[]" value="<%= prdtotal%>">
-                                    <input type="hidden" name="shopid" value="<%= shopId%>">
-                                    <td class="product-index"><%= ++slno%></td>
-                                    <td class="product-name"><%= prdname%></td>
-                                    <td class="product-name"><%= prddesc%></td>
-                                    <td class="product-price"><%= prdprice%></td>
-                                    <td class="product-price"><%= prdstock%> <%= rs.getString("unitname")%></td>
-                                    <td class="product-quantity">
-                                        <input type="number" min="1" id="Quantity<%= slno %>" name="quantity[]" placeholder="0" onchange="updateTotal(<%= slno %>)" oninput="this.value = Math.abs(this.value)">
-                                    </td>
-                                    <td class="product-total">
-                                        <input type="number" name="total[]" id="total<%= slno %>" readonly>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="removeselected.jsp?id=<%= rs.getString("selectid")%>">
-                                            <i class="far fa-window-close"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <%
-                                                subtotal += prdtotal;
-                                            }
-                                        } else {
-                                            response.sendRedirect("../GUEST/Guestindex.jsp");
+                            <input type="hidden" name="shpproductid[]" value="<%= productid%>">
+                            <input type="hidden" name="prdquantity[]" value="<%= prdquantity%>">
+                            <input type="hidden" name="prdtotal[]" value="<%= prdtotal%>">
+                            <input type="hidden" name="Prdstock[]" value="<%= prdstock%>">
+
+                            <input type="hidden" name="shopid" value="<%= shopId%>">
+                            <td class="product-index"><%= ++slno%></td>
+                            <td class="product-name"><%= prdname%></td>
+                            <td class="product-name"><%= prddesc%></td>
+                            <td class="product-price"><%= prdprice%></td>
+                            <td class="product-price"><%= prdstock%> <%= rs.getString("unitname")%></td>
+                            <td class="product-quantity">
+                                <input type="number" min="1" id="Quantity<%= slno%>" name="quantity[]" placeholder="0" onchange="updateTotal(<%= slno%>)" oninput="this.value = Math.abs(this.value)">
+                            </td>
+                            <td class="product-total">
+                                <input type="number" name="total[]" id="total<%= slno%>" readonly>
+                            </td>
+                            <td class="product-remove">
+                                <a href="removeselected.jsp?id=<%= rs.getString("selectid")%>">
+                                    <i class="far fa-window-close"></i>
+                                </a>
+                            </td>
+                            </tr>
+                            <%
+                                            subtotal += prdtotal;
                                         }
-                                        shopIdResultSet.close();
-                                        if (rs != null) {
-                                            rs.close();
-                                        }
-                                        if (ps != null) {
-                                            ps.close();
-                                        }
-                                        con.close();
-                                    } catch (Exception e) {
-                                        out.println("Exception occurred: " + e.getMessage());
-                                        e.printStackTrace();
+                                    } else {
+                                        response.sendRedirect("../GUEST/Guestindex.jsp");
                                     }
-                                %>
+                                    shopIdResultSet.close();
+                                    if (rs != null) {
+                                        rs.close();
+                                    }
+                                    if (ps != null) {
+                                        ps.close();
+                                    }
+                                    con.close();
+                                } catch (Exception e) {
+                                    out.println("Exception occurred: " + e.getMessage());
+                                    e.printStackTrace();
+                                }
+                            %>
                             </tbody>
                         </table>
                         <br>
@@ -114,7 +116,7 @@
                                                 <td><strong>Subtotal: </strong></td>
                                                 <td>&#x20B9;<span id="subtotalDisplay"><%= subtotal%></span></td>
                                             </tr>
-                                            <input type="hidden" name="subtotalDisplay" id="subtotal" value="<%= subtotal%>">
+                                        <input type="hidden" name="subtotalDisplay" id="subtotal" value="<%= subtotal%>">
                                         </tbody>
                                     </table>
                                     <div class="cart-buttons">

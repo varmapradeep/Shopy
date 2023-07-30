@@ -20,24 +20,26 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
-                    <h3>Login to <strong><b>SHOPY</b></strong></h3>
-                    <h5>Shop Managament System</h5>
+                    <h3><strong><b style="font: ">SHOPY</b></strong></h3>
 
-                    <p class="mb-4">Manage our whole shop online</p>
+
+                    <p class="mb-4">Manage our whole shop online</p>                  
+                    <p class="mb-4">Reset Password of  </p>
+
+
                     <form action="loginaction.jsp" method="post">
                         <div class="form-group first">
-                            <label for="username">Username</label>
-                            <input type="email" class="form-control" placeholder="Your E-mail" name="username">
+                            <label for="username">Password</label>
+                            <input type="Password" class="form-control" placeholder="Your Password" name="pass1">
                         </div>
                         <div class="form-group last mb-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password" name="password">
+                            <input type="password" class="form-control" placeholder="Re-enter Your Password" name="pass2">
                         </div>
-                        <div class="d-flex mb-5 align-items-center">
 
-                            <span class="ml-auto"><a href="forgot.jsp" class="forgot-pass">Forgot Password</a></span> 
-                        </div>
-                        <input type="submit" value="Log In" class="btn btn-block btn-primary">
+
+
+                        <input type="submit" value="reset" class="btn btn-block btn-primary">
+
                     </form>
                 </div>
             </div>

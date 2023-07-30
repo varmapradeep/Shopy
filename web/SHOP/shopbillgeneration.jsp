@@ -80,12 +80,12 @@
                 String Query = "SELECT * FROM tbl_sales s INNER JOIN tbl_shop ts ON s.shopid=ts.shopid INNER JOIN tbl_salesdetails sd ON sd.salesid=s.salesid INNER JOIN tbl_district td ON td.districtid=ts.district INNER JOIN tbl_city tc ON tc.cityid=ts.city INNER JOIN tbl_shpproducts tsp ON tsp.shpproductid=sd.productid INNER JOIN tbl_unit tuu ON tuu.unitid=sd.unit WHERE s.salesid='" + salesno + "' AND s.shopid='" + shopid + "'";
 
                 ResultSet rs = st.executeQuery(Query);
-        //        out.println(Query);
+                //        out.println(Query);
                 while (rs.next()) {
         %>
         <br>
         <div class="invoice" style=" background-color:lightgrey">
-            
+
             <div class="invoice-header">
                 <h3>Shop Billing Details</h3>
             </div>
@@ -126,8 +126,9 @@
                             <th>Index No</th>
                             <th>Product Name</th>
                             <th>Product Desc</th>
-                            <th>Quantity</th>
                             <th>Product Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
                             <!-- Add more table headers if needed -->
                         </tr>
                     </thead>
@@ -142,8 +143,10 @@
                             <td><%=++slno%></td>
                             <td><%=rss.getString("prdname")%></td>
                             <td><%=rss.getString("prddesc")%></td>
-                            <td><%=rss.getString("quantitity")%> <%=rss.getString("unitname")%></td>
                             <td><%=rss.getString("prdprice")%></td>
+                            <td><%=rss.getString("quantitity")%> <%=rss.getString("unitname")%></td>
+                            <td><%=rss.getString("prdtotals")%></td>
+
                         </tr>
                         <%
                                 }
@@ -168,13 +171,15 @@
                         }
                         shopIdResultSet.close();
 
-                        String query = "SELECT * FROM tbl_sales t INNER JOIN tbl_shop ts ON ts.shopid=t.shopid WHERE t.salesid='" + salesno + "' AND t.status='Pending'";
+                        String query = "SELECT * FROM tbl_sales t INNER JOIN tbl_shop ts ON ts.shopid=t.shopid WHERE t.salesid='" + salesno + "' AND t.status='Confirmed'";
                         ResultSet rst = st.executeQuery(query);
 
                         if (rst.next()) {
                             double totalAmount = rst.getDouble("totalprice");
                 %>
-                <p>Total: <b><%=totalAmount%></b></p>
+
+                <p class="total-price">Grand Total: <b><%=totalAmount%></b></p>
+
                 <%
                         }
                     } catch (Exception e) {
@@ -186,13 +191,12 @@
             <p></p>
             <button class="print-button" onclick="cancel()">Cancel</button>
         </div>
-           
+
         <script>
             function cancel() {
                 alert("cancel printing the bill");
                 window.location = "sales.jsp";
             }
-
             function printInvoice() {
                 var invoiceContent = document.querySelector(".invoice").innerHTML;
                 var printWindow = window.open("", "_blank");
